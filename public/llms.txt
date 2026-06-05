@@ -1,0 +1,60 @@
+# Enjab UI
+
+The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this URL (ui.enjab.ae) and it can theme any project to match Enjab with no other input.
+
+- Registry base: https://ui.enjab.ae/r/{name}.json
+- Namespace: @enjab-ui
+- Index of all items: https://ui.enjab.ae/r/registry.json
+- Live showcase: https://ui.enjab.ae (overview, components, dashboard, landing)
+
+## Setup (pick one)
+
+Direct, zero config:
+```
+npx shadcn@latest add https://ui.enjab.ae/r/theme.json
+npx shadcn@latest add https://ui.enjab.ae/r/button.json
+```
+
+Namespaced (add to components.json, then use @enjab-ui/<name>):
+```
+"registries": { "@enjab-ui": "https://ui.enjab.ae/r/{name}.json" }
+```
+```
+npx shadcn@latest add @enjab-ui/button
+```
+
+Install `theme` FIRST. It sets the Enjab design tokens that every component depends on.
+
+## Components
+
+- theme : Enjab design tokens (colors, fonts, radius, sidebar, charts). Install first.
+- button : pill-shaped button with a `navy` variant.
+- status-pill : colored dot plus label. Status is never color alone.
+- stat-card : KPI card with a mono value and trend delta.
+- logo : Enjab logo. Light backgrounds only.
+- reveal : Framer Motion scroll reveal. Landing pages only.
+
+## Fonts (load these; the theme references them by name)
+
+- Headings: Inter (Display optical size). Google Fonts, or next/font Inter.
+- Body / UI: Satoshi. Fontshare: https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap
+- Data (numbers, IDs, times): Fragment Mono. Google Fonts.
+
+CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi), --font-mono (Fragment Mono). Apply headings with the heading font, body with sans, data with mono.
+
+## Rules (follow when building any Enjab interface)
+
+- Light mode only. Never add a dark theme or dark: variants.
+- Typography: headings use Inter Display, body/UI uses Satoshi, all numbers/IDs/times use Fragment Mono (the `font-data` class). Never put a heading in Satoshi.
+- Color: teal #057C8B is primary, navy #1B3766 is depth. Always reference tokens (bg-teal, text-navy, bg-success, text-muted-foreground, etc.), never hardcode hex.
+- Status colors (success #42AF48, warning #E0A100, danger #D64545, info #0099FF) mean status. Never color alone; pair with text or an icon.
+- Logo on light backgrounds only. No reversed/white logo exists.
+- Motion: animations belong on landing/marketing pages only, implemented with Framer Motion. Dashboards and internal tools stay still (instant color/state changes only) for usability.
+- Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
+- App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
+- English, left to right.
+- Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
+
+## Audience
+
+Enjab builds employee-facing tools (dashboards, internal consoles, automation), each in its own repo, often by different developers and agents. This registry keeps them visually identical.
