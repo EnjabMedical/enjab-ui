@@ -72,7 +72,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
-- ALWAYS ship a favicon. No exceptions, ever, on any project, site, dashboard, or tool. Install @enjab-ui/favicon (Next App Router) or save https://ui.enjab.ae/icon.svg as the app icon. A project without a favicon is not done.
+- ALWAYS ship a favicon, INCLUDING a raster (.ico), because Safari ignores SVG-only favicons and shows a blank tab. Ship all three: app/icon.svg (@enjab-ui/favicon) + app/favicon.ico (https://ui.enjab.ae/favicon.ico) + app/apple-icon.png (https://ui.enjab.ae/apple-icon.png). SVG-only is not done.
 - English, left to right.
 - Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
 

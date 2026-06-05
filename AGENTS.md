@@ -35,6 +35,6 @@ General: when in doubt about spacing, use the 4px scale (`space-1`..`space-10` i
 - Typography is a THREE-font system (matches enjab.ae): headings/titles use Inter Display (any `<h1>`-`<h6>`, or the `font-heading` class on div titles); body and UI text use Satoshi (the default body font); data uses the `font-data` class (Fragment Mono). Never put a heading in Satoshi.
 - Numbers, IDs, times: use the `font-data` class (Fragment Mono).
 - Every dashboard shows the "an Enjab product" byline. If it has a sidebar, end the sidebar with `@enjab-ui/sidebar-footer` (account block + byline) pinned to the very bottom. If it has no sidebar, place `@enjab-ui/enjab-byline` anywhere sensible. Never restyle these, fixed sizes keep all dashboards identical.
-- ALWAYS ship a favicon. No exceptions, ever, on any Enjab project, site, dashboard, or tool. Install `@enjab-ui/favicon` (Next App Router) or save https://ui.enjab.ae/icon.svg as the app icon; apple touch icon at https://ui.enjab.ae/apple-icon.png. A project without a favicon is not done.
+- ALWAYS ship a favicon, including the RASTER (Safari ignores SVG-only favicons, the tab goes blank). On any Enjab project ship all three: `app/icon.svg` (`@enjab-ui/favicon`) + `app/favicon.ico` (https://ui.enjab.ae/favicon.ico) + `app/apple-icon.png` (https://ui.enjab.ae/apple-icon.png). SVG-only is not done.
 - Animation only on landing pages, via `motion` (Framer Motion). Dashboards stay still.
 - Reference theme tokens (`bg-teal`, `text-navy`, `bg-success`, etc.), never hardcode hex.

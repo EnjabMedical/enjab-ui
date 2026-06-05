@@ -8,7 +8,7 @@ General rules for every component:
 - States: default, hover, focus (visible teal ring), active, disabled, loading where relevant.
 - In dashboards, hover changes color only, never position. (Landing pages may animate, see [motion.md](motion.md).)
 - Status is never color alone, always paired with text or icon.
-- **Every Enjab project ships a favicon. REQUIRED, no exceptions, ever.** Use `@enjab-ui/favicon`, or the hosted icon at https://ui.enjab.ae/icon.svg (apple touch icon at https://ui.enjab.ae/apple-icon.png). A site or tool without a favicon is not done.
+- **Every Enjab project ships a favicon. REQUIRED, no exceptions, ever.** Ship all three (Safari ignores SVG-only favicons and shows a blank tab): `app/icon.svg` (`@enjab-ui/favicon`) PLUS `app/favicon.ico` (from https://ui.enjab.ae/favicon.ico) PLUS `app/apple-icon.png` (from https://ui.enjab.ae/apple-icon.png). SVG only = blank in Safari = not done.
 
 ## Spacing & vertical rhythm
 Caught in review on 2026-06-04, encode these so agents do not repeat them:
