@@ -10,6 +10,7 @@ const links = [
   { href: "/components", label: "Components" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/landing", label: "Landing" },
+  { href: "/changelog", label: "Changelog" },
 ];
 
 export function ShowcaseNav() {

@@ -15,13 +15,13 @@ export function EnjabByline({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex items-center justify-center gap-1.5 text-[11px] text-muted-foreground",
+        "flex items-center justify-center gap-2 text-[11px] text-muted-foreground",
         className
       )}
     >
       an
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="https://ui.enjab.ae/enjab-logo.png" alt="Enjab" className="h-4 w-auto" />
+      <img src="https://ui.enjab.ae/enjab-logo.png" alt="Enjab" className="h-6 w-auto" />
       product
     </div>
   );

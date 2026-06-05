@@ -1,10 +1,13 @@
 # Enjab UI
 
-The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this URL (ui.enjab.ae) and it can theme any project to match Enjab with no other input.
+Version: 2026.06.05c
+
+The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
 - Registry base: https://ui.enjab.ae/r/{name}.json
 - Namespace: @enjab-ui
 - Index of all items: https://ui.enjab.ae/r/registry.json
+- Changelog and update prompt: https://ui.enjab.ae/changelog
 - Live showcase: https://ui.enjab.ae (overview, components, dashboard, landing)
 
 ## Setup (pick one)

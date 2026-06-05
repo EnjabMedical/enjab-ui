@@ -1,0 +1,121 @@
+import { ShowcaseNav } from "@/components/enjab/showcase-nav";
+
+const UPDATE_PROMPT = `Update this project to the latest Enjab UI design system.
+
+1. Read https://ui.enjab.ae/llms.txt (current rules + components) and https://ui.enjab.ae/changelog (what changed).
+2. Apply ONLY the changelog items this project has not adopted yet. Do not refactor, restyle, or touch anything else.
+3. Re-install changed components: npx shadcn add @enjab-ui/<name> (overwrite when asked).
+4. If the theme/tokens changed, re-apply: npx shadcn add https://ui.enjab.ae/r/theme.json
+5. Keep following the Enjab rules in llms.txt (light mode only, Inter Display headings, Satoshi body, Fragment Mono data, motion landing-only, the required "an Enjab product" byline on dashboards).
+
+Keep the change surface minimal. Only do what the changelog requires.`;
+
+type Entry = {
+  version: string;
+  date: string;
+  title: string;
+  changed: string[];
+  action: string[];
+};
+
+const entries: Entry[] = [
+  {
+    version: "2026.06.05c",
+    date: "5 Jun 2026",
+    title: "Bigger Enjab byline logo",
+    changed: ['The "an Enjab product" byline logo is larger for legibility.'],
+    action: [
+      "Re-install: npx shadcn add @enjab-ui/enjab-byline (and @enjab-ui/sidebar-footer).",
+    ],
+  },
+  {
+    version: "2026.06.05b",
+    date: "5 Jun 2026",
+    title: "Required sidebar footer + Enjab byline",
+    changed: [
+      "New @enjab-ui/sidebar-footer: account block (avatar, email, sign out) plus the byline.",
+      "New @enjab-ui/enjab-byline: standalone byline for dashboards with no sidebar.",
+    ],
+    action: [
+      "Every dashboard must show the byline. Sidebar: put sidebar-footer at the very bottom. No sidebar: place enjab-byline anywhere.",
+    ],
+  },
+  {
+    version: "2026.06.05a",
+    date: "5 Jun 2026",
+    title: "Typography: Inter Display headings",
+    changed: [
+      "Headings use Inter Display, body Satoshi, data Fragment Mono (matches enjab.ae). Earlier builds wrongly used Satoshi for headings.",
+    ],
+    action: [
+      "Headings must use the heading font (font-heading or any h1-h6), never Satoshi. Re-apply: npx shadcn add https://ui.enjab.ae/r/theme.json",
+    ],
+  },
+  {
+    version: "2026.06.04",
+    date: "4 Jun 2026",
+    title: "Enjab UI registry published",
+    changed: ["Initial registry: theme, button, status-pill, stat-card, logo, reveal."],
+    action: ["Set up per https://ui.enjab.ae/llms.txt."],
+  },
+];
+
+export default function ChangelogPage() {
+  return (
+    <div className="min-h-full">
+      <ShowcaseNav />
+      <main className="mx-auto max-w-3xl px-6 py-12">
+        <h1 className="text-3xl font-black tracking-tight text-navy">Changelog</h1>
+        <p className="mt-2 text-muted-foreground">
+          Updates to Enjab UI. To bring a project up to date, send an agent{" "}
+          <span className="font-data text-teal">ui.enjab.ae/llms.txt</span> with the prompt below. It
+          applies only what changed, nothing else.
+        </p>
+
+        {/* Update prompt */}
+        <section className="mt-8">
+          <h2 className="font-data text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            Update prompt, send to any agent
+          </h2>
+          <pre className="mt-3 overflow-x-auto rounded-2xl bg-[#0e1b2a] p-5 font-data text-[12.5px] leading-relaxed whitespace-pre-wrap text-[#cfe8ec]">
+{UPDATE_PROMPT}
+          </pre>
+        </section>
+
+        {/* Entries */}
+        <section className="mt-12 space-y-4">
+          <h2 className="font-data text-xs uppercase tracking-[0.14em] text-muted-foreground">
+            History
+          </h2>
+          {entries.map((e) => (
+            <article key={e.version} className="rounded-2xl border bg-card p-6">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="rounded-full bg-teal-tint px-2.5 py-1 font-data text-[11px] text-teal">
+                  {e.version}
+                </span>
+                <span className="font-data text-xs text-muted-foreground">{e.date}</span>
+              </div>
+              <h3 className="mt-3 text-lg font-bold text-navy">{e.title}</h3>
+              <div className="mt-3 text-sm">
+                <div className="font-semibold text-foreground">Changed</div>
+                <ul className="mt-1 list-disc space-y-1 pl-5 text-muted-foreground">
+                  {e.changed.map((c, i) => (
+                    <li key={i}>{c}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-3 rounded-xl bg-teal-tint/60 p-3 text-sm">
+                <div className="font-semibold text-teal">Action for your project</div>
+                <ul className="mt-1 list-disc space-y-1 pl-5 text-navy">
+                  {e.action.map((a, i) => (
+                    <li key={i} className="font-data text-[12.5px]">{a}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))}
+        </section>
+      </main>
+    </div>
+  );
+}

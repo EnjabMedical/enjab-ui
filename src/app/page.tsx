@@ -129,9 +129,8 @@ export default function Home() {
           <div className="mt-4 rounded-2xl border bg-card p-7">
             <h3 className="text-xl font-bold text-navy">Point an agent at this URL</h3>
             <p className="mt-2 max-w-2xl text-muted-foreground">
-              Give an agent <span className="font-data text-teal">ui.enjab.ae</span> and it themes any
-              project to match Enjab, with no other input. Full machine-readable spec at{" "}
-              <a href="/llms.txt" className="font-semibold text-teal hover:underline">/llms.txt</a>.
+              Give an agent <span className="font-data text-teal">ui.enjab.ae/llms.txt</span> and it
+              themes any project to match Enjab, with no other input.
             </p>
             <div className="mt-5 overflow-x-auto rounded-xl bg-[#0e1b2a] p-4 font-data text-[12.5px] leading-relaxed text-[#cfe8ec]">
               <div className="text-[#8fb3c9]"># install the theme first, then any component</div>
@@ -145,6 +144,10 @@ export default function Home() {
               <div>{`"registries": { "@enjab-ui": "https://ui.enjab.ae/r/{name}.json" }`}</div>
               <div>npx shadcn@latest add @enjab-ui/button</div>
             </div>
+            <p className="mt-4 text-sm text-muted-foreground">
+              Updating an existing project? Grab the update prompt and changelog at{" "}
+              <a href="/changelog" className="font-semibold text-teal hover:underline">ui.enjab.ae/changelog</a>.
+            </p>
             <div className="mt-5 flex flex-wrap gap-2 text-xs">
               {["light mode only", "Inter Display headings", "Satoshi body", "font-data numbers", "motion landing-only"].map((t) => (
                 <span key={t} className="rounded-full bg-teal-tint px-2.5 py-1 font-data text-teal">{t}</span>
