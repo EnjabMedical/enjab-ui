@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.05c
+Version: 2026.06.05d
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -51,6 +51,7 @@ else, keep the change surface minimal.
 - reveal : Framer Motion scroll reveal. Landing pages only.
 - enjab-byline : "an Enjab product" byline. Required on every dashboard.
 - sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
+- favicon : the Enjab favicon. REQUIRED in every project, no exceptions.
 
 ## Fonts (load these; the theme references them by name)
 
@@ -71,6 +72,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
+- ALWAYS ship a favicon. No exceptions, ever, on any project, site, dashboard, or tool. Install @enjab-ui/favicon (Next App Router) or save https://ui.enjab.ae/icon.svg as the app icon. A project without a favicon is not done.
 - English, left to right.
 - Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
 

@@ -129,6 +129,15 @@
       "files": [
         { "path": "src/components/enjab/sidebar-footer.tsx", "type": "registry:ui", "target": "components/enjab/sidebar-footer.tsx" }
       ]
+    },
+    {
+      "name": "favicon",
+      "type": "registry:item",
+      "title": "Favicon",
+      "description": "The Enjab favicon. REQUIRED in every Enjab project, no exceptions. Drops into the Next.js app dir.",
+      "files": [
+        { "path": "src/app/icon.svg", "type": "registry:file", "target": "src/app/icon.svg" }
+      ]
     }
   ]
 }

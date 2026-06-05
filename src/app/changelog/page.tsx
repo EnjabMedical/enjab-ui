@@ -20,6 +20,15 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.05d",
+    date: "5 Jun 2026",
+    title: "Favicon required",
+    changed: ["New @enjab-ui/favicon. Every Enjab project must ship a favicon, no exceptions."],
+    action: [
+      "Add it: npx shadcn add @enjab-ui/favicon (or save https://ui.enjab.ae/icon.svg as app/icon.svg).",
+    ],
+  },
+  {
     version: "2026.06.05c",
     date: "5 Jun 2026",
     title: "Bigger Enjab byline logo",
