@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat-card",
+  "title": "Stat Card",
+  "description": "KPI card with a mono value and trend delta.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "src/components/enjab/stat-card.tsx",
+      "content": "import { TrendingDown, TrendingUp, type LucideIcon } from \"lucide-react\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * KPI / stat card. Value is rendered in Fragment Mono (data is always mono).\n */\nexport function StatCard({\n  label,\n  value,\n  delta,\n  trend = \"up\",\n  icon: Icon,\n  className,\n}: {\n  label: string;\n  value: string;\n  delta?: string;\n  trend?: \"up\" | \"down\";\n  icon?: LucideIcon;\n  className?: string;\n}) {\n  return (\n    <div className={cn(\"rounded-xl border bg-card p-4\", className)}>\n      <div className=\"flex items-center gap-2 text-xs text-muted-foreground\">\n        {Icon ? <Icon className=\"size-4 text-teal\" /> : null}\n        <span>{label}</span>\n      </div>\n      <div className=\"mt-2.5 font-data text-[27px] leading-none tracking-tight text-navy\">\n        {value}\n      </div>\n      {delta ? (\n        <div\n          className={cn(\n            \"mt-2.5 inline-flex items-center gap-1 text-xs font-semibold\",\n            trend === \"down\" ? \"text-danger\" : \"text-success\"\n          )}\n        >\n          {trend === \"down\" ? (\n            <TrendingDown className=\"size-3.5\" />\n          ) : (\n            <TrendingUp className=\"size-3.5\" />\n          )}\n          {delta}\n        </div>\n      ) : null}\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/enjab/stat-card.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

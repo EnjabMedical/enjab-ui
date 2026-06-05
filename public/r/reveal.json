@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "reveal",
+  "title": "Reveal",
+  "description": "Scroll reveal for landing pages. Framer Motion.",
+  "dependencies": [
+    "motion"
+  ],
+  "files": [
+    {
+      "path": "src/components/enjab/reveal.tsx",
+      "content": "\"use client\";\n\nimport { motion } from \"motion/react\";\n\n/**\n * Scroll reveal for landing pages only. Rises and fades in once on view.\n * Per motion.md, this belongs on marketing surfaces, never in dashboards.\n */\nexport function Reveal({\n  children,\n  delay = 0,\n  className,\n}: {\n  children: React.ReactNode;\n  delay?: number;\n  className?: string;\n}) {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: 24 }}\n      whileInView={{ opacity: 1, y: 0 }}\n      viewport={{ once: true, margin: \"-80px\" }}\n      transition={{ duration: 0.56, ease: [0.22, 1, 0.36, 1], delay }}\n      className={className}\n    >\n      {children}\n    </motion.div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/enjab/reveal.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

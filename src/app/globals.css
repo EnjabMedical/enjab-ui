@@ -1,0 +1,182 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+  Enjab UI theme. Light mode only by design. Tokens mirror design-system/foundations.md.
+  Brand: teal #057C8B, navy #1B3766. Type: Satoshi (UI) + Fragment Mono (data).
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-enjab-sans);
+  --font-mono: var(--font-enjab-mono);
+  --font-heading: var(--font-enjab-heading);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Enjab brand tokens (usable as bg-navy, text-success, etc.) */
+  --color-navy: var(--navy);
+  --color-navy-soft: var(--navy-soft);
+  --color-teal: var(--teal);
+  --color-teal-hover: var(--teal-hover);
+  --color-teal-tint: var(--teal-tint);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --color-canvas: var(--canvas);
+  --color-ink: var(--ink);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+
+  /* Motion (landing only, per motion.md) */
+  --ease-hover: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  /* fonts: Inter Display (headings) + Satoshi (body) + Fragment Mono (data), mirroring enjab.ae */
+  --font-enjab-heading: "Inter", "Inter Display", system-ui, sans-serif;
+  --font-enjab-sans: "Satoshi", system-ui, -apple-system, sans-serif;
+  --font-enjab-mono: "Fragment Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* surfaces */
+  --background: #f6f8f9; /* canvas */
+  --foreground: #0d0d0d; /* ink */
+  --card: #ffffff;
+  --card-foreground: #0d0d0d;
+  --popover: #ffffff;
+  --popover-foreground: #0d0d0d;
+
+  /* brand */
+  --primary: #057c8b; /* teal */
+  --primary-foreground: #ffffff;
+  --secondary: #edf1f2;
+  --secondary-foreground: #1b3766; /* navy */
+  --muted: #f1f3f5;
+  --muted-foreground: #5e5e5e;
+  --accent: #e6f3f4; /* teal tint */
+  --accent-foreground: #054e59;
+  --destructive: #d64545;
+
+  /* lines & focus */
+  --border: #e9ecef;
+  --input: #e4e8eb;
+  --ring: #057c8b;
+
+  /* chart / data series order */
+  --chart-1: #057c8b;
+  --chart-2: #1b3766;
+  --chart-3: #0099ff;
+  --chart-4: #42af48;
+  --chart-5: #89aad9;
+
+  --radius: 0.75rem; /* 12px cards */
+
+  /* sidebar */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #5e5e5e;
+  --sidebar-primary: #057c8b;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e6f3f4;
+  --sidebar-accent-foreground: #1b3766;
+  --sidebar-border: #e9ecef;
+  --sidebar-ring: #057c8b;
+
+  /* Enjab named tokens */
+  --navy: #1b3766;
+  --navy-soft: #2a4b82;
+  --teal: #057c8b;
+  --teal-hover: #066170;
+  --teal-tint: #e6f3f4;
+  --success: #42af48;
+  --warning: #e0a100;
+  --danger: #d64545;
+  --info: #0099ff;
+  --canvas: #f6f8f9;
+  --ink: #0d0d0d;
+  --line: #e9ecef;
+  --line-soft: #f1f3f5;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-enjab-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  html {
+    @apply font-sans;
+    scroll-behavior: smooth;
+  }
+  /* Headings use Inter Display (matches enjab.ae); body stays Satoshi. */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-enjab-heading);
+    font-optical-sizing: auto;
+    letter-spacing: -0.011em;
+  }
+  .font-heading {
+    font-family: var(--font-enjab-heading);
+    font-optical-sizing: auto;
+  }
+  .font-data,
+  .tabular {
+    font-family: var(--font-enjab-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  ::selection {
+    background: color-mix(in srgb, var(--teal) 22%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

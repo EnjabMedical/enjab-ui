@@ -1,0 +1,115 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "enjab-ui",
+  "homepage": "https://ui.enjab.ae",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:style",
+      "title": "Enjab Theme",
+      "description": "Enjab brand tokens. Light mode only. Teal primary, navy depth, Inter Display headings, Satoshi body, Fragment Mono data.",
+      "cssVars": {
+        "theme": {
+          "font-sans": "Satoshi, system-ui, sans-serif",
+          "font-mono": "Fragment Mono, ui-monospace, monospace",
+          "font-heading": "Inter, system-ui, sans-serif",
+          "radius": "0.75rem"
+        },
+        "light": {
+          "background": "#f6f8f9",
+          "foreground": "#0d0d0d",
+          "card": "#ffffff",
+          "card-foreground": "#0d0d0d",
+          "popover": "#ffffff",
+          "popover-foreground": "#0d0d0d",
+          "primary": "#057c8b",
+          "primary-foreground": "#ffffff",
+          "secondary": "#edf1f2",
+          "secondary-foreground": "#1b3766",
+          "muted": "#f1f3f5",
+          "muted-foreground": "#5e5e5e",
+          "accent": "#e6f3f4",
+          "accent-foreground": "#054e59",
+          "destructive": "#d64545",
+          "border": "#e9ecef",
+          "input": "#e4e8eb",
+          "ring": "#057c8b",
+          "chart-1": "#057c8b",
+          "chart-2": "#1b3766",
+          "chart-3": "#0099ff",
+          "chart-4": "#42af48",
+          "chart-5": "#89aad9",
+          "sidebar": "#ffffff",
+          "sidebar-foreground": "#5e5e5e",
+          "sidebar-primary": "#057c8b",
+          "sidebar-primary-foreground": "#ffffff",
+          "sidebar-accent": "#e6f3f4",
+          "sidebar-accent-foreground": "#1b3766",
+          "sidebar-border": "#e9ecef",
+          "sidebar-ring": "#057c8b",
+          "navy": "#1b3766",
+          "navy-soft": "#2a4b82",
+          "teal": "#057c8b",
+          "teal-hover": "#066170",
+          "teal-tint": "#e6f3f4",
+          "success": "#42af48",
+          "warning": "#e0a100",
+          "danger": "#d64545",
+          "info": "#0099ff",
+          "canvas": "#f6f8f9",
+          "ink": "#0d0d0d",
+          "line": "#e9ecef",
+          "line-soft": "#f1f3f5"
+        }
+      }
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "Enjab pill-shaped button with a navy variant.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "files": [
+        { "path": "src/components/ui/button.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "status-pill",
+      "type": "registry:ui",
+      "title": "Status Pill",
+      "description": "Colored dot plus label. Status is never color alone.",
+      "files": [
+        { "path": "src/components/enjab/status-pill.tsx", "type": "registry:ui", "target": "components/enjab/status-pill.tsx" }
+      ]
+    },
+    {
+      "name": "stat-card",
+      "type": "registry:ui",
+      "title": "Stat Card",
+      "description": "KPI card with a mono value and trend delta.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        { "path": "src/components/enjab/stat-card.tsx", "type": "registry:ui", "target": "components/enjab/stat-card.tsx" }
+      ]
+    },
+    {
+      "name": "logo",
+      "type": "registry:ui",
+      "title": "Logo",
+      "description": "Enjab logo. Light backgrounds only.",
+      "files": [
+        { "path": "src/components/enjab/logo.tsx", "type": "registry:ui", "target": "components/enjab/logo.tsx" }
+      ]
+    },
+    {
+      "name": "reveal",
+      "type": "registry:ui",
+      "title": "Reveal",
+      "description": "Scroll reveal for landing pages. Framer Motion.",
+      "dependencies": ["motion"],
+      "files": [
+        { "path": "src/components/enjab/reveal.tsx", "type": "registry:ui", "target": "components/enjab/reveal.tsx" }
+      ]
+    }
+  ]
+}
