@@ -2,7 +2,7 @@
 
 The Enjab design system in code. A themed shadcn/ui library for Enjab's employee-facing dashboards and internal tools. Light mode only, English LTR, teal-led, Satoshi + Fragment Mono.
 
-Built from the specs in `../design-system/`.
+Built from the written specs in [`docs/`](docs/).
 
 ## Stack
 - Next.js 16 (App Router) + React 19 + TypeScript

@@ -6,7 +6,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 
 # Enjab UI conventions (read before editing pages)
 
-See the full system in `../design-system/`. Quick rules below, including spacing mistakes already caught in review.
+See the full written spec in `docs/`. Quick rules below, including spacing mistakes already caught in review.
 
 ## Spacing & vertical rhythm (fixed 2026-06-04, do not repeat)
 
