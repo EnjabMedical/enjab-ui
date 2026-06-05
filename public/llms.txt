@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.05d
+Version: 2026.06.06
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 

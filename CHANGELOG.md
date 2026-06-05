@@ -4,6 +4,10 @@ Updates to the Enjab UI design system. Agents: apply ONLY what each entry lists,
 
 To bring a project up to date, send an agent: `https://ui.enjab.ae/llms.txt` plus the update prompt at https://ui.enjab.ae/changelog.
 
+## 2026.06.06, Favicon needs a raster (.ico) for Safari
+- Changed: the favicon rule now requires a raster, not just the SVG. Safari ignores SVG-only favicons and shows a blank tab.
+- Action: alongside `app/icon.svg`, add `app/favicon.ico` (from https://ui.enjab.ae/favicon.ico) and `app/apple-icon.png` (from https://ui.enjab.ae/apple-icon.png).
+
 ## 2026.06.05d, Favicon required
 - Changed: new `@enjab-ui/favicon`. Every Enjab project must ship a favicon, no exceptions.
 - Action: add it, `npx shadcn add @enjab-ui/favicon` (or save https://ui.enjab.ae/icon.svg as `app/icon.svg`).

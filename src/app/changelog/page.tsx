@@ -20,6 +20,15 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06",
+    date: "6 Jun 2026",
+    title: "Favicon needs a raster (.ico) for Safari",
+    changed: ["The favicon rule now requires a raster, not just SVG. Safari ignores SVG-only favicons (blank tab)."],
+    action: [
+      "Add app/favicon.ico (https://ui.enjab.ae/favicon.ico) and app/apple-icon.png (https://ui.enjab.ae/apple-icon.png) next to app/icon.svg.",
+    ],
+  },
+  {
     version: "2026.06.05d",
     date: "5 Jun 2026",
     title: "Favicon required",
