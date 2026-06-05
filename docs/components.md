@@ -62,7 +62,7 @@ Caught in review on 2026-06-04, encode these so agents do not repeat them:
 
 ## Overlays
 - **Modal/dialog:** centered, `surface`, 16px radius, `shadow.md`, scrim `rgba(13,13,13,.4)`. Title navy, clear primary/secondary actions.
-- **Toast:** top-right, status-colored left border, auto-dismiss, mono timestamps if shown.
+- **Toast:** Sonner with `theme="light"` (never `system`, we are light only) and `richColors`, so the title is tinted by type (success green, warning amber, danger red, info blue) and the description stays dark and readable. Top-right, auto-dismiss.
 - **Dropdown/menu:** `surface`, `line` border, `shadow.md`, 8px radius, hover `canvas`.
 - **Tooltip:** navy bg, white text, small.
 
