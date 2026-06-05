@@ -20,6 +20,15 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06b",
+    date: "6 Jun 2026",
+    title: "Instant navigation with skeletons",
+    changed: ["Screens open instantly with a Skeleton while data loads, never a blank or frozen page."],
+    action: [
+      "Add a loading.tsx to every data-fetching route, with a skeleton that mirrors the layout (animate-pulse on bg-muted, no layout shift).",
+    ],
+  },
+  {
     version: "2026.06.06",
     date: "6 Jun 2026",
     title: "Favicon needs a raster (.ico) for Safari",

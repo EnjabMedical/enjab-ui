@@ -4,6 +4,10 @@ Updates to the Enjab UI design system. Agents: apply ONLY what each entry lists,
 
 To bring a project up to date, send an agent: `https://ui.enjab.ae/llms.txt` plus the update prompt at https://ui.enjab.ae/changelog.
 
+## 2026.06.06b, Instant navigation with skeletons
+- Changed: new rule. Screens open instantly with a Skeleton (Next.js loading.tsx) while data loads, never a blank or frozen page.
+- Action: add a `loading.tsx` to every data-fetching route, rendering a skeleton that mirrors the page layout (animate-pulse on bg-muted, no layout shift).
+
 ## 2026.06.06, Favicon needs a raster (.ico) for Safari
 - Changed: the favicon rule now requires a raster, not just the SVG. Safari ignores SVG-only favicons and shows a blank tab.
 - Action: alongside `app/icon.svg`, add `app/favicon.ico` (from https://ui.enjab.ae/favicon.ico) and `app/apple-icon.png` (from https://ui.enjab.ae/apple-icon.png).

@@ -36,5 +36,6 @@ General: when in doubt about spacing, use the 4px scale (`space-1`..`space-10` i
 - Numbers, IDs, times: use the `font-data` class (Fragment Mono).
 - Every dashboard shows the "an Enjab product" byline. If it has a sidebar, end the sidebar with `@enjab-ui/sidebar-footer` (account block + byline) pinned to the very bottom. If it has no sidebar, place `@enjab-ui/enjab-byline` anywhere sensible. Never restyle these, fixed sizes keep all dashboards identical.
 - ALWAYS ship a favicon, including the RASTER (Safari ignores SVG-only favicons, the tab goes blank). On any Enjab project ship all three: `app/icon.svg` (`@enjab-ui/favicon`) + `app/favicon.ico` (https://ui.enjab.ae/favicon.ico) + `app/apple-icon.png` (https://ui.enjab.ae/apple-icon.png). SVG-only is not done.
+- Navigation must be INSTANT. Every data-fetching route ships a `loading.tsx` skeleton (Next.js) that mirrors the page and shows immediately while data loads. Never a blank or frozen screen. Skeletons = `animate-pulse` on `bg-muted`, sized to match the real content (no layout shift).
 - Animation only on landing pages, via `motion` (Framer Motion). Dashboards stay still.
 - Reference theme tokens (`bg-teal`, `text-navy`, `bg-success`, etc.), never hardcode hex.

@@ -68,7 +68,7 @@ Caught in review on 2026-06-04, encode these so agents do not repeat them:
 
 ## Feedback & empty states
 - **Empty state:** Lucide icon in a teal-tint circle, navy title, gray body, one primary action.
-- **Loading:** skeletons using `line.soft`, or a teal spinner. No layout shift.
+- **Loading (instant nav, required):** navigation is instant. Every data-fetching route shows a skeleton immediately (Next.js `loading.tsx`) that mirrors the final layout, never a blank or frozen screen. Skeletons are `animate-pulse` on `bg-muted`, sized to match the real content (no layout shift). A teal spinner is only for small in-place async, not page navigation.
 - **Error:** danger-toned, plain-language message, a way to retry.
 
 ## Charts (Recharts)

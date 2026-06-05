@@ -16,6 +16,7 @@ Approved by Mohamed on 2026-06-04. Source brand data: [brand-kit.md](brand-kit.m
 - **Compact density on a 4px grid.** 14px base text, ~44px table rows. Efficient, not cramped.
 - **Every dashboard shows the "an Enjab product" byline.** Sidebar dashboards end the sidebar with the account block + byline (`@enjab-ui/sidebar-footer`, pinned to the very bottom). No-sidebar dashboards place `@enjab-ui/enjab-byline` anywhere sensible. Fixed sizes, identical across all dashboards, never restyled. (Account ties into the unified Enjab auth system later.)
 - **Always ship a favicon. No exceptions, ever.** Use `@enjab-ui/favicon` or the hosted https://ui.enjab.ae/icon.svg. Every Enjab project, dashboard, and tool has a favicon.
+- **Instant navigation with skeletons.** Screens open instantly. Every data-fetching route shows a Skeleton immediately (Next.js `loading.tsx`) that mirrors the final layout, never a blank or frozen page while data loads. Skeletons are `animate-pulse` on `bg-muted`, sized to match the real content so there is no layout shift when it arrives.
 
 ## Color roles
 

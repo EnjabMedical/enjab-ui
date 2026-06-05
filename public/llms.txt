@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06
+Version: 2026.06.06b
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -73,6 +73,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
 - ALWAYS ship a favicon, INCLUDING a raster (.ico), because Safari ignores SVG-only favicons and shows a blank tab. Ship all three: app/icon.svg (@enjab-ui/favicon) + app/favicon.ico (https://ui.enjab.ae/favicon.ico) + app/apple-icon.png (https://ui.enjab.ae/apple-icon.png). SVG-only is not done.
+- Navigation must be INSTANT. Every data-fetching route ships a Next.js loading.tsx skeleton that mirrors the page and shows immediately while data loads. Never a blank or frozen screen. Skeletons = animate-pulse on bg-muted, sized to the real content (no layout shift).
 - English, left to right.
 - Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
 
