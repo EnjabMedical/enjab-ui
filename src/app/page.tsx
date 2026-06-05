@@ -144,10 +144,12 @@ export default function Home() {
               <div>{`"registries": { "@enjab-ui": "https://ui.enjab.ae/r/{name}.json" }`}</div>
               <div>npx shadcn@latest add @enjab-ui/button</div>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Updating an existing project? Grab the update prompt and changelog at{" "}
-              <a href="/changelog" className="font-semibold text-teal hover:underline">ui.enjab.ae/changelog</a>.
+            <p className="mt-6 font-bold text-navy">Updating an existing project</p>
+            <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
+              Send your agent this message (full prompt and changelog at{" "}
+              <a href="/changelog" className="font-semibold text-teal hover:underline">ui.enjab.ae/changelog</a>):
             </p>
+            <pre className="mt-2 overflow-x-auto rounded-xl bg-[#0e1b2a] p-4 font-data text-[12.5px] leading-relaxed whitespace-pre-wrap text-[#cfe8ec]">{`Update this project to the latest Enjab UI. Read https://ui.enjab.ae/llms.txt and https://ui.enjab.ae/changelog, apply only the changelog items not yet adopted, re-install changed components with npx shadcn add @enjab-ui/<name>, and do not refactor anything else.`}</pre>
             <div className="mt-5 flex flex-wrap gap-2 text-xs">
               {["light mode only", "Inter Display headings", "Satoshi body", "font-data numbers", "motion landing-only"].map((t) => (
                 <span key={t} className="rounded-full bg-teal-tint px-2.5 py-1 font-data text-teal">{t}</span>

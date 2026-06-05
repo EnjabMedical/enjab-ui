@@ -28,6 +28,19 @@ npx shadcn@latest add @enjab-ui/button
 
 Install `theme` FIRST. It sets the Enjab design tokens that every component depends on.
 
+## Updating an existing project
+
+When Enjab UI changes, the changelog lists exactly what to do per change: https://ui.enjab.ae/changelog
+
+A user updates a project by sending their agent this message:
+```
+Update this project to the latest Enjab UI. Read https://ui.enjab.ae/llms.txt and
+https://ui.enjab.ae/changelog, then apply ONLY the changelog items this project has
+not adopted yet. Re-install changed components with `npx shadcn add @enjab-ui/<name>`
+(overwrite). Re-apply the theme if tokens changed. Do not refactor or restyle anything
+else, keep the change surface minimal.
+```
+
 ## Components
 
 - theme : Enjab design tokens (colors, fonts, radius, sidebar, charts). Install first.
