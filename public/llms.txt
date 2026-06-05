@@ -33,6 +33,8 @@ Install `theme` FIRST. It sets the Enjab design tokens that every component depe
 - stat-card : KPI card with a mono value and trend delta.
 - logo : Enjab logo. Light backgrounds only.
 - reveal : Framer Motion scroll reveal. Landing pages only.
+- enjab-byline : "an Enjab product" byline. Required on every dashboard.
+- sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
 
 ## Fonts (load these; the theme references them by name)
 
@@ -52,6 +54,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Motion: animations belong on landing/marketing pages only, implemented with Framer Motion. Dashboards and internal tools stay still (instant color/state changes only) for usability.
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
+- Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
 - English, left to right.
 - Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
 

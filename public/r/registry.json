@@ -110,6 +110,25 @@
       "files": [
         { "path": "src/components/enjab/reveal.tsx", "type": "registry:ui", "target": "components/enjab/reveal.tsx" }
       ]
+    },
+    {
+      "name": "enjab-byline",
+      "type": "registry:ui",
+      "title": "Enjab Byline",
+      "description": "Required 'an Enjab product' byline. Bottom of the sidebar, or anywhere if the dashboard has no sidebar.",
+      "files": [
+        { "path": "src/components/enjab/enjab-byline.tsx", "type": "registry:ui", "target": "components/enjab/enjab-byline.tsx" }
+      ]
+    },
+    {
+      "name": "sidebar-footer",
+      "type": "registry:ui",
+      "title": "Sidebar Footer",
+      "description": "Required bottom of every dashboard sidebar: account block (avatar, email, sign out) plus the Enjab byline. Keeps all Enjab dashboards identical.",
+      "registryDependencies": ["https://ui.enjab.ae/r/enjab-byline.json"],
+      "files": [
+        { "path": "src/components/enjab/sidebar-footer.tsx", "type": "registry:ui", "target": "components/enjab/sidebar-footer.tsx" }
+      ]
     }
   ]
 }

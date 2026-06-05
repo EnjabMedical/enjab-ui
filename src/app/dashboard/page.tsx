@@ -25,6 +25,7 @@ import {
 import { Logo } from "@/components/enjab/logo";
 import { StatCard } from "@/components/enjab/stat-card";
 import { StatusPill } from "@/components/enjab/status-pill";
+import { SidebarFooter } from "@/components/enjab/sidebar-footer";
 import { Button } from "@/components/ui/button";
 import {
   Table,
@@ -99,17 +100,7 @@ export default function DashboardPage() {
             </div>
           ))}
         </nav>
-        <div className="mt-auto flex items-center gap-2.5 border-t border-line-soft px-4 py-3">
-          <Avatar className="size-8">
-            <AvatarFallback className="bg-gradient-to-br from-teal to-navy text-xs text-white">
-              LA
-            </AvatarFallback>
-          </Avatar>
-          <div className="leading-tight">
-            <div className="text-[13px] font-bold">Layla Ahmed</div>
-            <div className="text-[11px] text-muted-foreground">Front Desk</div>
-          </div>
-        </div>
+        <SidebarFooter name="Layla Ahmed" email="layla@enjab.ae" initial="L" />
       </aside>
 
       {/* main */}

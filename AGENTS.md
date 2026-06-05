@@ -34,5 +34,6 @@ General: when in doubt about spacing, use the 4px scale (`space-1`..`space-10` i
 - Logo (`<Logo/>`) only on light backgrounds.
 - Typography is a THREE-font system (matches enjab.ae): headings/titles use Inter Display (any `<h1>`-`<h6>`, or the `font-heading` class on div titles); body and UI text use Satoshi (the default body font); data uses the `font-data` class (Fragment Mono). Never put a heading in Satoshi.
 - Numbers, IDs, times: use the `font-data` class (Fragment Mono).
+- Every dashboard shows the "an Enjab product" byline. If it has a sidebar, end the sidebar with `@enjab-ui/sidebar-footer` (account block + byline) pinned to the very bottom. If it has no sidebar, place `@enjab-ui/enjab-byline` anywhere sensible. Never restyle these, fixed sizes keep all dashboards identical.
 - Animation only on landing pages, via `motion` (Framer Motion). Dashboards stay still.
 - Reference theme tokens (`bg-teal`, `text-navy`, `bg-success`, etc.), never hardcode hex.
