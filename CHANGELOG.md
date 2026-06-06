@@ -4,6 +4,10 @@ Updates to the Enjab UI design system. Agents: apply ONLY what each entry lists,
 
 To bring a project up to date, send an agent: `https://ui.enjab.ae/llms.txt` plus the update prompt at https://ui.enjab.ae/changelog.
 
+## 2026.06.06d, Account block is now identical everywhere
+- Changed: `sidebar-footer` always renders the same two lines (display name + email + Sign out). When no name is given (e.g. the auth system stores only an email), it derives the display name from the email, so the block looks identical in every tool and agents can't drift it.
+- Action: re-install `npx shadcn add @enjab-ui/sidebar-footer @enjab-ui/sidebar`.
+
 ## 2026.06.06c, Ready dashboard chrome (sidebar, shell, header, table)
 - Changed: new components so every Enjab tool's chrome is identical: `@enjab-ui/sidebar`, `@enjab-ui/dashboard-shell`, `@enjab-ui/page-header`, `@enjab-ui/data-table`. `logo` now loads from the hosted URL (portable); `sidebar-footer` shows the email as the primary line when there is no name.
 - Action: build dashboards from these, never hand-roll the sidebar/topbar/table. `npx shadcn add @enjab-ui/sidebar @enjab-ui/dashboard-shell @enjab-ui/page-header @enjab-ui/data-table`, and re-install `@enjab-ui/logo` + `@enjab-ui/sidebar-footer` for the fixes.

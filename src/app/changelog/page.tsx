@@ -20,6 +20,15 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06d",
+    date: "6 Jun 2026",
+    title: "Account block is now identical everywhere",
+    changed: [
+      "sidebar-footer always renders the same two lines (display name + email + Sign out); derives the name from the email when none is given, so it can't drift between tools.",
+    ],
+    action: ["Re-install: npx shadcn add @enjab-ui/sidebar-footer @enjab-ui/sidebar."],
+  },
+  {
     version: "2026.06.06c",
     date: "6 Jun 2026",
     title: "Ready dashboard chrome (sidebar, shell, header, table)",

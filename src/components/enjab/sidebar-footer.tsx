@@ -1,15 +1,28 @@
 import { cn } from "@/lib/utils";
 import { EnjabByline } from "@/components/enjab/enjab-byline";
 
+/** Derive a display name from an email, e.g. layla.ahmed@enjab.ae -> "Layla Ahmed". */
+function nameFromEmail(email: string): string {
+  const local = email.split("@")[0] ?? email;
+  return (
+    local
+      .split(/[._-]+/)
+      .filter(Boolean)
+      .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+      .join(" ") || email
+  );
+}
+
 /**
  * Required footer for EVERY Enjab dashboard sidebar. Pin it to the very bottom.
  *
- * Two fixed parts, identical across all Enjab dashboards:
- *   1. Account block: circular avatar (initial), name/email, sign out.
+ * FIXED, identical across every Enjab tool, do not restyle or relabel:
+ *   1. Account block: avatar (initial), display name, email, "Sign out".
  *   2. The "an Enjab product" byline.
  *
- * If there is no display name (e.g. the auth system has only the email), the
- * email becomes the primary line so it still looks intentional. Do not restyle.
+ * Always renders two lines. If no `name` is given (e.g. the auth system stores
+ * only the email), a display name is derived from the email so it looks the same
+ * everywhere. Pass `name` to override.
  */
 export function SidebarFooter({
   email,
@@ -24,7 +37,8 @@ export function SidebarFooter({
   onSignOut?: () => void;
   className?: string;
 }) {
-  const mark = (initial ?? email.charAt(0)).toUpperCase();
+  const display = name && name.trim() ? name : nameFromEmail(email);
+  const mark = (initial ?? display.charAt(0)).toUpperCase();
   return (
     <div className={cn("mt-auto border-t border-line-soft", className)}>
       {/* Account */}
@@ -33,14 +47,8 @@ export function SidebarFooter({
           {mark}
         </div>
         <div className="min-w-0 flex-1 leading-tight">
-          {name ? (
-            <>
-              <div className="truncate text-[13px] font-semibold text-foreground">{name}</div>
-              <div className="truncate text-[11px] text-muted-foreground">{email}</div>
-            </>
-          ) : (
-            <div className="truncate text-[13px] font-semibold text-foreground">{email}</div>
-          )}
+          <div className="truncate text-[13px] font-semibold text-foreground">{display}</div>
+          <div className="truncate text-[11px] text-muted-foreground">{email}</div>
         </div>
         <button
           type="button"
