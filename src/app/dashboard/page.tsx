@@ -103,7 +103,7 @@ export default function DashboardPage() {
         }
       />
 
-      <div className="flex-1 overflow-auto p-6">
+      <div className="flex-1 overflow-auto p-4 sm:p-6">
         {/* KPIs */}
         <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <StatCard label="Appointments today" value="128" delta="12% vs last week" trend="up" icon={CalendarDays} />

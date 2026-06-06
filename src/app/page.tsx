@@ -53,7 +53,7 @@ export default function Home() {
           </span>
           <div className="flex items-center gap-4">
             <AppMark name="Enjab UI" glyph={<BrushGlyph />} size={52} showName={false} />
-            <h1 className="text-5xl font-black tracking-tight text-navy">Enjab UI</h1>
+            <h1 className="text-4xl font-black tracking-tight text-navy sm:text-5xl">Enjab UI</h1>
           </div>
           <p className="max-w-2xl text-lg text-muted-foreground">
             The Enjab brand, built on shadcn/ui and tuned for employee-facing dashboards and internal tools.

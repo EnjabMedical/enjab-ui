@@ -19,7 +19,7 @@ export function PageHeader({
   return (
     <header
       className={cn(
-        "flex h-15 shrink-0 items-center justify-between gap-4 border-b bg-card px-6",
+        "flex h-15 shrink-0 items-center justify-between gap-3 border-b bg-card px-4 sm:px-6",
         className
       )}
     >
@@ -29,7 +29,7 @@ export function PageHeader({
           <div className="truncate font-data text-[11px] text-muted-foreground">{subtitle}</div>
         ) : null}
       </div>
-      {action ? <div className="flex shrink-0 items-center gap-3">{action}</div> : null}
+      {action ? <div className="flex shrink-0 items-center gap-2 sm:gap-3">{action}</div> : null}
     </header>
   );
 }

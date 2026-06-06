@@ -20,6 +20,17 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06l",
+    date: "6 Jun 2026",
+    title: "Dashboards are responsive (phone-usable)",
+    changed: [
+      "The shell is responsive now: @enjab-ui/sidebar collapses to a hamburger drawer below lg, dashboard-shell stacks, page-header tightens. data-table already scrolls. New rule: landing pages fully responsive; dashboards desktop-optimized but phone-usable (stack grids, p-4 sm:p-6), never desktop-only.",
+    ],
+    action: [
+      "Re-install: npx shadcn add @enjab-ui/sidebar @enjab-ui/dashboard-shell @enjab-ui/page-header. Make your content stack on small screens (grid-cols-1 sm:grid-cols-2 ...).",
+    ],
+  },
+  {
     version: "2026.06.06k",
     date: "6 Jun 2026",
     title: "Tools show their OWN brand (Enjab logo moves to the byline)",

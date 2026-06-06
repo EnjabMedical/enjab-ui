@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06k
+Version: 2026.06.06l
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -77,6 +77,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Logo on light backgrounds only. No reversed/white logo exists.
 - Buttons that trigger a slow action (network request, server action, async submit) MUST give feedback: disable the button and show a spinner while it runs, so it can't be double-clicked and the user knows something is happening. Use the button's `loading` prop: `<Button loading={busy}>Save</Button>` (it disables + shows the spinner). For a form posting to a server action, drive it with useFormStatus: `const { pending } = useFormStatus()` then `<Button loading={pending}>`. Never leave a button clickable and silent during a slow action.
 - Motion: animations belong on landing/marketing pages only, implemented with Framer Motion. Dashboards and internal tools stay still (instant color/state changes only) for usability.
+- Responsive: LANDING / marketing pages are FULLY responsive, mobile-first (look right down to 360px). DASHBOARDS and internal tools are desktop-optimized but must stay PHONE-USABLE, never desktop-only or broken. The shared chrome already handles most of it: @enjab-ui/sidebar collapses to a hamburger drawer below lg, @enjab-ui/dashboard-shell stacks, and @enjab-ui/data-table scrolls horizontally inside its card (no data lost). For your own content: stack grids to one column on small screens (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4), shrink page padding (p-4 sm:p-6), never set fixed pixel widths that overflow a phone, keep tap targets comfortable. Do NOT build a separate mobile design, just don't break.
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.

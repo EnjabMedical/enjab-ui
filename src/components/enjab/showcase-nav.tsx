@@ -18,11 +18,11 @@ export function ShowcaseNav() {
   const pathname = usePathname();
   return (
     <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+        <Link href="/" className="flex shrink-0 items-center">
           <AppMark name="Enjab UI" glyph={<BrushGlyph />} size={30} />
         </Link>
-        <nav className="flex items-center gap-1">
+        <nav className="-mr-1 flex items-center gap-0.5 overflow-x-auto pr-1 sm:gap-1">
           {links.map((l) => {
             const active =
               l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
@@ -31,7 +31,7 @@ export function ShowcaseNav() {
                 key={l.href}
                 href={l.href}
                 className={cn(
-                  "rounded-full px-3.5 py-2 text-sm font-semibold transition-colors",
+                  "shrink-0 rounded-full px-3 py-2 text-sm font-semibold whitespace-nowrap transition-colors sm:px-3.5",
                   active
                     ? "bg-teal-tint text-navy"
                     : "text-muted-foreground hover:bg-muted hover:text-foreground"

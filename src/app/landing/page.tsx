@@ -69,14 +69,14 @@ export default function LandingPage() {
         <section className="relative overflow-hidden">
           <div className="pointer-events-none absolute -top-24 right-0 size-[460px] rounded-full bg-teal/10 blur-3xl" />
           <div className="pointer-events-none absolute top-10 -left-20 size-[360px] rounded-full bg-info/10 blur-3xl" />
-          <div className="mx-auto max-w-6xl px-6 py-24">
+          <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24">
             <Reveal>
               <span className="rounded-full border border-teal/20 bg-teal-tint px-3 py-1 font-data text-xs uppercase tracking-[0.12em] text-teal">
                 Enjab Medical Centre · Sharjah
               </span>
             </Reveal>
             <Reveal delay={0.06}>
-              <h1 className="mt-6 max-w-3xl text-6xl font-black leading-[1.05] tracking-tight text-navy">
+              <h1 className="mt-6 max-w-3xl text-4xl font-black leading-[1.07] tracking-tight text-navy sm:text-5xl lg:text-6xl">
                 Your health is our priority
               </h1>
             </Reveal>
@@ -134,7 +134,7 @@ export default function LandingPage() {
 
         {/* stats */}
         <section className="mx-auto max-w-6xl px-6 py-20">
-          <div className="grid gap-10 rounded-3xl border bg-canvas p-12 sm:grid-cols-3">
+          <div className="grid gap-8 rounded-3xl border bg-canvas p-7 sm:grid-cols-3 sm:gap-10 sm:p-12">
             <div>
               <CountUp to={200000} suffix="+" />
               <div className="mt-1 text-sm text-muted-foreground">Patients treated</div>
@@ -153,8 +153,8 @@ export default function LandingPage() {
         {/* CTA */}
         <section className="mx-auto max-w-6xl px-6 pb-24">
           <Reveal>
-            <div className="overflow-hidden rounded-3xl bg-navy px-10 py-14 text-center">
-              <h2 className="text-3xl font-black text-white">The best, or nothing.</h2>
+            <div className="overflow-hidden rounded-3xl bg-navy px-6 py-10 text-center sm:px-10 sm:py-14">
+              <h2 className="text-2xl font-black text-white sm:text-3xl">The best, or nothing.</h2>
               <p className="mx-auto mt-3 max-w-md text-white/70">
                 Book your visit with Enjab today and experience care built on twenty years of trust.
               </p>
