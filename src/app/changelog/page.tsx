@@ -20,6 +20,17 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06c",
+    date: "6 Jun 2026",
+    title: "Ready dashboard chrome (sidebar, shell, header, table)",
+    changed: [
+      "New @enjab-ui/sidebar, dashboard-shell, page-header, data-table so every tool's chrome is identical. logo now loads from the hosted URL; sidebar-footer handles email-only accounts.",
+    ],
+    action: [
+      "Build dashboards from these (don't hand-roll the sidebar/topbar/table): npx shadcn add @enjab-ui/sidebar @enjab-ui/dashboard-shell @enjab-ui/page-header @enjab-ui/data-table. Re-install logo + sidebar-footer for the fixes.",
+    ],
+  },
+  {
     version: "2026.06.06b",
     date: "6 Jun 2026",
     title: "Instant navigation with skeletons",

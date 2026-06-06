@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "dashboard-shell",
+  "title": "Dashboard Shell",
+  "description": "The dashboard layout: a fixed sidebar + a scrollable main column. Compose with Sidebar + PageHeader.",
+  "files": [
+    {
+      "path": "src/components/enjab/dashboard-shell.tsx",
+      "content": "import { cn } from \"@/lib/utils\";\n\n/**\n * The dashboard layout: a fixed sidebar + a scrollable main column.\n * Pass `<Sidebar />` as `sidebar`; put `<PageHeader />` and the scroll area in\n * `children`. Keeps every Enjab tool's shell identical.\n *\n *   <DashboardShell sidebar={<Sidebar ... />}>\n *     <PageHeader title=\"Users\" action={<Button>Add</Button>} />\n *     <div className=\"flex-1 overflow-auto p-6\">...</div>\n *   </DashboardShell>\n */\nexport function DashboardShell({\n  sidebar,\n  children,\n  className,\n}: {\n  sidebar: React.ReactNode;\n  children: React.ReactNode;\n  className?: string;\n}) {\n  return (\n    <div className={cn(\"flex h-dvh overflow-hidden bg-canvas\", className)}>\n      {sidebar}\n      <div className=\"flex min-w-0 flex-1 flex-col\">{children}</div>\n    </div>\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/enjab/dashboard-shell.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

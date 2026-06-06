@@ -4,6 +4,10 @@ Updates to the Enjab UI design system. Agents: apply ONLY what each entry lists,
 
 To bring a project up to date, send an agent: `https://ui.enjab.ae/llms.txt` plus the update prompt at https://ui.enjab.ae/changelog.
 
+## 2026.06.06c, Ready dashboard chrome (sidebar, shell, header, table)
+- Changed: new components so every Enjab tool's chrome is identical: `@enjab-ui/sidebar`, `@enjab-ui/dashboard-shell`, `@enjab-ui/page-header`, `@enjab-ui/data-table`. `logo` now loads from the hosted URL (portable); `sidebar-footer` shows the email as the primary line when there is no name.
+- Action: build dashboards from these, never hand-roll the sidebar/topbar/table. `npx shadcn add @enjab-ui/sidebar @enjab-ui/dashboard-shell @enjab-ui/page-header @enjab-ui/data-table`, and re-install `@enjab-ui/logo` + `@enjab-ui/sidebar-footer` for the fixes.
+
 ## 2026.06.06b, Instant navigation with skeletons
 - Changed: new rule. Screens open instantly with a Skeleton (Next.js loading.tsx) while data loads, never a blank or frozen page.
 - Action: add a `loading.tsx` to every data-fetching route, rendering a skeleton that mirrors the page layout (animate-pulse on bg-muted, no layout shift).

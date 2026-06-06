@@ -1,26 +1,17 @@
-import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * Enjab logo. Per the brand rule, the logo is only ever placed on light
- * backgrounds (no reversed/white version exists).
+ * Enjab logo. Light backgrounds only (no reversed/white version exists).
+ * Loads from the hosted URL, so it works in any repo with no local asset.
  */
-export function Logo({
-  size = 40,
-  className,
-}: {
-  size?: number;
-  className?: string;
-}) {
+export function Logo({ size = 32, className }: { size?: number; className?: string }) {
   return (
-    <Image
-      src="/enjab-logo.png"
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="https://ui.enjab.ae/enjab-logo.png"
       alt="Enjab"
-      width={size}
-      height={size}
-      priority
-      className={cn("h-auto w-auto select-none", className)}
       style={{ height: size }}
+      className={cn("w-auto select-none", className)}
     />
   );
 }

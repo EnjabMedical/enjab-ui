@@ -4,12 +4,12 @@ import { EnjabByline } from "@/components/enjab/enjab-byline";
 /**
  * Required footer for EVERY Enjab dashboard sidebar. Pin it to the very bottom.
  *
- * Two fixed parts that must look identical across all Enjab dashboards:
- *   1. Account block: circular avatar (initial), email, sign out.
- *   2. The "an Enjab product" byline (EnjabByline).
+ * Two fixed parts, identical across all Enjab dashboards:
+ *   1. Account block: circular avatar (initial), name/email, sign out.
+ *   2. The "an Enjab product" byline.
  *
- * Sizes and weights are fixed here on purpose. Do not restyle per project.
- * (Account wiring will plug into the unified Enjab auth system later, see roadmap.)
+ * If there is no display name (e.g. the auth system has only the email), the
+ * email becomes the primary line so it still looks intentional. Do not restyle.
  */
 export function SidebarFooter({
   email,
@@ -34,9 +34,13 @@ export function SidebarFooter({
         </div>
         <div className="min-w-0 flex-1 leading-tight">
           {name ? (
-            <div className="truncate text-[13px] font-semibold text-foreground">{name}</div>
-          ) : null}
-          <div className="truncate text-[11px] text-muted-foreground">{email}</div>
+            <>
+              <div className="truncate text-[13px] font-semibold text-foreground">{name}</div>
+              <div className="truncate text-[11px] text-muted-foreground">{email}</div>
+            </>
+          ) : (
+            <div className="truncate text-[13px] font-semibold text-foreground">{email}</div>
+          )}
         </div>
         <button
           type="button"

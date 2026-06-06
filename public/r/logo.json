@@ -6,7 +6,7 @@
   "files": [
     {
       "path": "src/components/enjab/logo.tsx",
-      "content": "import Image from \"next/image\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * Enjab logo. Per the brand rule, the logo is only ever placed on light\n * backgrounds (no reversed/white version exists).\n */\nexport function Logo({\n  size = 40,\n  className,\n}: {\n  size?: number;\n  className?: string;\n}) {\n  return (\n    <Image\n      src=\"/enjab-logo.png\"\n      alt=\"Enjab\"\n      width={size}\n      height={size}\n      priority\n      className={cn(\"h-auto w-auto select-none\", className)}\n      style={{ height: size }}\n    />\n  );\n}\n",
+      "content": "import { cn } from \"@/lib/utils\";\n\n/**\n * Enjab logo. Light backgrounds only (no reversed/white version exists).\n * Loads from the hosted URL, so it works in any repo with no local asset.\n */\nexport function Logo({ size = 32, className }: { size?: number; className?: string }) {\n  return (\n    // eslint-disable-next-line @next/next/no-img-element\n    <img\n      src=\"https://ui.enjab.ae/enjab-logo.png\"\n      alt=\"Enjab\"\n      style={{ height: size }}\n      className={cn(\"w-auto select-none\", className)}\n    />\n  );\n}\n",
       "type": "registry:ui",
       "target": "components/enjab/logo.tsx"
     }

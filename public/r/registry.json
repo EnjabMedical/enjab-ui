@@ -131,6 +131,45 @@
       ]
     },
     {
+      "name": "page-header",
+      "type": "registry:ui",
+      "title": "Page Header",
+      "description": "The dashboard topbar: title, subtitle, and an action slot. Aligns with the sidebar brand header.",
+      "files": [
+        { "path": "src/components/enjab/page-header.tsx", "type": "registry:ui", "target": "components/enjab/page-header.tsx" }
+      ]
+    },
+    {
+      "name": "dashboard-shell",
+      "type": "registry:ui",
+      "title": "Dashboard Shell",
+      "description": "The dashboard layout: a fixed sidebar + a scrollable main column. Compose with Sidebar + PageHeader.",
+      "files": [
+        { "path": "src/components/enjab/dashboard-shell.tsx", "type": "registry:ui", "target": "components/enjab/dashboard-shell.tsx" }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "title": "Sidebar",
+      "description": "The Enjab dashboard sidebar: brand header, grouped nav with active state, and the account footer + byline. Plugs into Enjab Auth (pass the user email + sign-out).",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["https://ui.enjab.ae/r/logo.json", "https://ui.enjab.ae/r/sidebar-footer.json"],
+      "files": [
+        { "path": "src/components/enjab/sidebar.tsx", "type": "registry:ui", "target": "components/enjab/sidebar.tsx" }
+      ]
+    },
+    {
+      "name": "data-table",
+      "type": "registry:ui",
+      "title": "Data Table",
+      "description": "The Enjab data table: bordered card, mono uppercase headers, optional title, empty state. Pass columns + rows; cells stay flexible.",
+      "registryDependencies": ["table"],
+      "files": [
+        { "path": "src/components/enjab/data-table.tsx", "type": "registry:ui", "target": "components/enjab/data-table.tsx" }
+      ]
+    },
+    {
       "name": "favicon",
       "type": "registry:item",
       "title": "Favicon",

@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06b
+Version: 2026.06.06c
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -52,6 +52,10 @@ else, keep the change surface minimal.
 - enjab-byline : "an Enjab product" byline. Required on every dashboard.
 - sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
 - favicon : the Enjab favicon. REQUIRED in every project, no exceptions.
+- sidebar : the dashboard sidebar (brand header + grouped nav with active state + account footer + byline). Plugs into Enjab Auth (pass the user email + sign-out).
+- dashboard-shell : the dashboard layout (fixed sidebar + scrollable main column). Compose with sidebar + page-header.
+- page-header : the dashboard topbar (title, subtitle, action slot). Aligns with the sidebar brand header.
+- data-table : the Enjab data table (bordered card, mono uppercase headers, optional title, empty state). Pass columns + rows; cells stay flexible.
 
 ## Fonts (load these; the theme references them by name)
 
@@ -74,6 +78,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
 - ALWAYS ship a favicon, INCLUDING a raster (.ico), because Safari ignores SVG-only favicons and shows a blank tab. Ship all three: app/icon.svg (@enjab-ui/favicon) + app/favicon.ico (https://ui.enjab.ae/favicon.ico) + app/apple-icon.png (https://ui.enjab.ae/apple-icon.png). SVG-only is not done.
 - Navigation must be INSTANT. Every data-fetching route ships a Next.js loading.tsx skeleton that mirrors the page and shows immediately while data loads. Never a blank or frozen screen. Skeletons = animate-pulse on bg-muted, sized to the real content (no layout shift).
+- Build the dashboard CHROME from the ready components: @enjab-ui/dashboard-shell + @enjab-ui/sidebar + @enjab-ui/page-header + @enjab-ui/data-table. NEVER hand-roll the sidebar, topbar, or table, reimplementing them is what causes drift. Only the cell content / page content is custom.
 - English, left to right.
 - Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
 
