@@ -20,6 +20,17 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06j",
+    date: "6 Jun 2026",
+    title: "Favicon and in-app icon must match",
+    changed: [
+      "New rule: a tool's favicon and any in-app icon/brand mark must be the SAME image. The favicon glyph is canonical; mirror it into one small component so the tab icon and the on-screen mark can't drift. Also: customize the favicon glyph with inline SVG (Lucide React components don't render in the icon generator).",
+    ],
+    action: [
+      "When you set a custom favicon GLYPH, render the identical mark (same gradient square + glyph) anywhere the app shows its own icon.",
+    ],
+  },
+  {
     version: "2026.06.06h",
     date: "6 Jun 2026",
     title: "Favicon is now customizable (swap the letter or use an icon)",
