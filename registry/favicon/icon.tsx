@@ -6,9 +6,18 @@ import type { ReactNode } from "react";
 // same so every Enjab tool stays visually consistent; only change the glyph.
 //
 //   • Different letter:  const GLYPH = "W";
-//   • An icon instead:   import { Stethoscope } from "lucide-react";
-//                        const GLYPH = <Stethoscope width={36} height={36}
-//                                        color="#fff" strokeWidth={2.5} />;
+//   • An icon instead:   paste the icon's raw SVG (grab the markup from lucide.dev
+//                        or any icon set). Use an inline <svg> — Lucide React
+//                        components do NOT render inside this generator. Example:
+//                        const GLYPH = (
+//                          <svg width={36} height={36} viewBox="0 0 24 24" fill="none"
+//                               stroke="#fff" strokeWidth={2.2} strokeLinecap="round"
+//                               strokeLinejoin="round">
+//                            <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L21 4" />
+//                            <path d="m21 2-9.6 9.6" />
+//                            <circle cx="7.5" cy="15.5" r="5.5" />
+//                          </svg>
+//                        );
 const GLYPH: ReactNode = "E";
 // ────────────────────────────────────────────────────────────────────────────
 

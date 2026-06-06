@@ -24,7 +24,7 @@ const entries: Entry[] = [
     date: "6 Jun 2026",
     title: "Favicon is now customizable (swap the letter or use an icon)",
     changed: [
-      "@enjab-ui/favicon is code-generated: app/icon.tsx + app/apple-icon.tsx render the Enjab gradient square with a glyph. Edit the GLYPH constant to use a different letter or any Lucide icon, same look. PNG output, so it works in Safari with no separate .ico. Default stays 'E'.",
+      "@enjab-ui/favicon is code-generated: app/icon.tsx + app/apple-icon.tsx render the Enjab gradient square with a glyph. Edit the GLYPH constant to use a different letter or paste an icon's inline SVG (Lucide React components don't render in the generator). PNG output, so it works in Safari with no separate .ico. Default stays 'E'.",
     ],
     action: [
       "Re-install: npx shadcn add @enjab-ui/favicon. Delete any old app/icon.svg so it doesn't clash. To brand a tool, set GLYPH in app/icon.tsx + app/apple-icon.tsx.",
