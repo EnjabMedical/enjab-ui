@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Logo } from "@/components/enjab/logo";
+import { AppMark } from "@/components/enjab/app-mark";
+import { BrushGlyph } from "@/components/brush-glyph";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -18,11 +19,8 @@ export function ShowcaseNav() {
   return (
     <header className="sticky top-0 z-40 border-b bg-card/80 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-3">
-          <Logo size={34} />
-          <span className="font-data text-xs uppercase tracking-[0.18em] text-teal">
-            UI
-          </span>
+        <Link href="/" className="flex items-center">
+          <AppMark name="Enjab UI" glyph={<BrushGlyph />} size={30} />
         </Link>
         <nav className="flex items-center gap-1">
           {links.map((l) => {

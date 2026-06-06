@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ArrowRight, LayoutDashboard, Sparkles, Component } from "lucide-react";
 import { ShowcaseNav } from "@/components/enjab/showcase-nav";
-import { Logo } from "@/components/enjab/logo";
+import { AppMark } from "@/components/enjab/app-mark";
+import { EnjabByline } from "@/components/enjab/enjab-byline";
+import { BrushGlyph } from "@/components/brush-glyph";
 import { Button } from "@/components/ui/button";
 
 const brand = [
@@ -50,7 +52,7 @@ export default function Home() {
             Design system in code
           </span>
           <div className="flex items-center gap-4">
-            <Logo size={56} />
+            <AppMark name="Enjab UI" glyph={<BrushGlyph />} size={52} showName={false} />
             <h1 className="text-5xl font-black tracking-tight text-navy">Enjab UI</h1>
           </div>
           <p className="max-w-2xl text-lg text-muted-foreground">
@@ -159,6 +161,7 @@ export default function Home() {
         </section>
 
         <footer className="mt-16 border-t pt-8 text-sm text-muted-foreground">
+          <EnjabByline className="mb-4" />
           Enjab UI · light mode only · registry{" "}
           <span className="font-data text-teal">ui.enjab.ae/r</span> · namespace{" "}
           <span className="font-data text-teal">@enjab-ui</span>
