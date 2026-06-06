@@ -1,9 +1,10 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
-import { Logo } from "@/components/enjab/logo";
+import { AppMark } from "@/components/enjab/app-mark";
 import { SidebarFooter } from "@/components/enjab/sidebar-footer";
 import { cn } from "@/lib/utils";
 
@@ -11,21 +12,25 @@ export type SidebarNavItem = { href: string; label: string; icon: LucideIcon };
 export type SidebarNavGroup = { label?: string; items: SidebarNavItem[] };
 
 /**
- * The Enjab dashboard sidebar: brand header (aligned to the topbar), grouped nav
- * with active state, and the required account footer + "an Enjab product" byline.
+ * The Enjab dashboard sidebar: brand header (the TOOL's own mark + name, aligned to
+ * the topbar), grouped nav with active state, and the required account footer + "an
+ * Enjab product" byline (the only place the Enjab logo appears).
  *
- * Plugs straight into Enjab Auth. The `user` prop is shaped to take the result of
- * the Enjab Auth `getUser()` call directly (it has `name` + `email`), so the account
- * block shows the real signed-in person:
+ * Pass `appName` (your tool's name) and `appIcon` (the SAME glyph as your favicon, so
+ * the tab icon and the sidebar mark match). It also plugs straight into Enjab Auth:
+ * the `user` prop takes the `getUser()` result (it has `name` + `email`):
  *
  *   const user = await getUser();            // from Enjab Auth (auth.enjab.ae/llms.txt)
- *   <Sidebar user={user} onSignOut={signOut} groups={groups} />
+ *   <Sidebar appName="Riverside Clinic" appIcon={<MyGlyph />}
+ *            user={user} onSignOut={signOut} groups={groups} />
  *
  * Do not re-implement, every Enjab tool uses this.
  */
 export function Sidebar({
   groups,
   user,
+  appName,
+  appIcon,
   onSignOut,
   badge,
   homeHref = "/",
@@ -34,6 +39,10 @@ export function Sidebar({
 }: {
   groups: SidebarNavGroup[];
   user: { email: string; name?: string; initial?: string };
+  /** Your tool's name, shown at the top of the sidebar. */
+  appName: string;
+  /** Your tool's glyph (same as the favicon). Defaults to the first letter of appName. */
+  appIcon?: ReactNode;
   onSignOut?: () => void;
   badge?: string;
   homeHref?: string;
@@ -50,11 +59,11 @@ export function Sidebar({
     <aside className={cn("flex w-60 shrink-0 flex-col border-r bg-sidebar", className)}>
       <Link
         href={homeHref}
-        className="flex h-15 shrink-0 items-center justify-between border-b px-4"
+        className="flex h-15 shrink-0 items-center justify-between gap-2 border-b px-4"
       >
-        <Logo size={30} />
+        <AppMark name={appName} glyph={appIcon} size={26} />
         {badge ? (
-          <span className="font-data text-[10px] uppercase tracking-[0.12em] text-teal">
+          <span className="shrink-0 font-data text-[10px] uppercase tracking-[0.12em] text-teal">
             {badge}
           </span>
         ) : null}

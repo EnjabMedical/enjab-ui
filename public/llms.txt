@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06j
+Version: 2026.06.06k
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -48,12 +48,13 @@ else, keep the change surface minimal.
 - status-pill : colored dot plus label. Status is never color alone.
 - alert : in-page message box in four tones (success, info, warning, danger). Icon + title carry the meaning. Pass `tone`, `title`, and optional body/`action`.
 - stat-card : KPI card with a mono value and trend delta.
-- logo : Enjab logo. Light backgrounds only.
+- logo : the Enjab PARENT logo. Light backgrounds only. Use ONLY in the "an Enjab product" byline, never as a tool's own brand.
+- app-mark : a tool's OWN brand mark (the gradient favicon square + the tool name). Use at the top of the sidebar and on landing navbars. Pass `name` + `glyph` (the same glyph as your favicon).
 - reveal : Framer Motion scroll reveal. Landing pages only.
 - enjab-byline : "an Enjab product" byline. Required on every dashboard.
 - sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
 - favicon : the Enjab favicon, code-generated (app/icon.tsx + app/apple-icon.tsx). REQUIRED in every project. Edit the GLYPH constant to swap the letter or paste an icon's inline SVG, same gradient + shape.
-- sidebar : the dashboard sidebar (brand header + grouped nav with active state + account footer + byline). Plugs into Enjab Auth: pass the getUser() result as `user` (name + email) + a sign-out handler; the account block shows the real signed-in person.
+- sidebar : the dashboard sidebar. The brand header shows the TOOL's own mark + name (pass `appName` + `appIcon`, the same glyph as your favicon), not the Enjab logo. Grouped nav with active state + account footer + "an Enjab product" byline. Plugs into Enjab Auth: pass the getUser() result as `user` (name + email) + a sign-out handler.
 - dashboard-shell : the dashboard layout (fixed sidebar + scrollable main column). Compose with sidebar + page-header.
 - page-header : the dashboard topbar (title, subtitle, action slot). Aligns with the sidebar brand header.
 - data-table : the Enjab data table, fully self-styled (bordered card, mono uppercase headers, comfortable rows with soft separators and a canvas hover, optional title, empty state). Enforced look, identical everywhere. Pass columns + rows; cells stay flexible.
@@ -81,6 +82,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
 - ALWAYS ship the favicon via @enjab-ui/favicon. It adds app/icon.tsx + app/apple-icon.tsx: code-generated PNG icons (the Enjab gradient square + a glyph), which render correctly in Safari, so no separate .ico is needed. To brand a tool, edit the GLYPH constant at the top of app/icon.tsx (and app/apple-icon.tsx): use a different letter, or paste an icon's raw inline SVG (Lucide React components do NOT render inside the icon generator, paste the <svg> markup), keeping the same gradient and shape. Default is the letter "E". Never ship a project without it. (If you previously had a static app/icon.svg from an older version, delete it so it doesn't clash.)
 - The favicon and any in-app icon / brand mark MUST be the SAME image. The favicon glyph (the GLYPH in app/icon.tsx) is canonical: wherever the app shows its own square icon/logo (a sign-in panel, a header mark, etc.), render the identical mark, same gradient square, same glyph. Mirror the glyph SVG into one small component so the tab icon and the on-screen mark can never drift. Never let them differ.
+- A tool shows ITS OWN brand at the top of the sidebar and on landing navbars, the tool's mark (@enjab-ui/app-mark) = its favicon square + the tool's name, NOT the Enjab logo. Pass `appName` + `appIcon` to the sidebar. The Enjab parent logo (@enjab-ui/logo) appears in EXACTLY ONE place: the "an Enjab product" byline (sidebar-footer / enjab-byline). Never put the Enjab logo in the navbar/sidebar top.
 - Navigation must be INSTANT. Every data-fetching route ships a Next.js loading.tsx skeleton that mirrors the page and shows immediately while data loads. Never a blank or frozen screen. Skeletons = animate-pulse on bg-muted, sized to the real content (no layout shift).
 - Build the dashboard CHROME from the ready components: @enjab-ui/dashboard-shell + @enjab-ui/sidebar + @enjab-ui/page-header + @enjab-ui/data-table. NEVER hand-roll the sidebar, topbar, or table, reimplementing them is what causes drift. Only the cell content / page content is custom.
 - English, left to right.

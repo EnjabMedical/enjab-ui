@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "logo",
   "title": "Logo",
-  "description": "Enjab logo. Light backgrounds only.",
+  "description": "The Enjab parent logo. Light backgrounds only. Use ONLY in the 'an Enjab product' byline, not as a tool's own brand. For a tool's mark use @enjab-ui/app-mark.",
   "files": [
     {
       "path": "src/components/enjab/logo.tsx",

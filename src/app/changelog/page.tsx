@@ -20,6 +20,17 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06k",
+    date: "6 Jun 2026",
+    title: "Tools show their OWN brand (Enjab logo moves to the byline)",
+    changed: [
+      "New @enjab-ui/app-mark: a tool's own mark (the gradient favicon square + the tool name). The sidebar brand header now shows this (pass appName + appIcon), not the Enjab logo. The Enjab parent logo now appears only in the 'an Enjab product' byline. Demo dashboard + landing updated.",
+    ],
+    action: [
+      "Install @enjab-ui/app-mark and pass appName + appIcon (the same glyph as your favicon) to @enjab-ui/sidebar. Re-install sidebar. Use the Enjab logo only in the byline.",
+    ],
+  },
+  {
     version: "2026.06.06j",
     date: "6 Jun 2026",
     title: "Favicon and in-app icon must match",

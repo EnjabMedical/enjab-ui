@@ -106,9 +106,18 @@
       "name": "logo",
       "type": "registry:ui",
       "title": "Logo",
-      "description": "Enjab logo. Light backgrounds only.",
+      "description": "The Enjab parent logo. Light backgrounds only. Use ONLY in the 'an Enjab product' byline, not as a tool's own brand. For a tool's mark use @enjab-ui/app-mark.",
       "files": [
         { "path": "src/components/enjab/logo.tsx", "type": "registry:ui", "target": "components/enjab/logo.tsx" }
+      ]
+    },
+    {
+      "name": "app-mark",
+      "type": "registry:ui",
+      "title": "App Mark",
+      "description": "A tool's OWN brand mark: the gradient favicon square + the tool name. Goes at the top of the sidebar and on landing navbars (each tool shows its own identity). Pass `name` and `glyph` (the same glyph as your favicon). The Enjab logo is only for the 'an Enjab product' byline.",
+      "files": [
+        { "path": "src/components/enjab/app-mark.tsx", "type": "registry:ui", "target": "components/enjab/app-mark.tsx" }
       ]
     },
     {
@@ -162,9 +171,9 @@
       "name": "sidebar",
       "type": "registry:ui",
       "title": "Sidebar",
-      "description": "The Enjab dashboard sidebar: brand header, grouped nav with active state, and the account footer + byline. Plugs straight into Enjab Auth: pass the getUser() result as `user` (it has name + email) plus a sign-out handler, and the account block shows the real signed-in person.",
+      "description": "The Enjab dashboard sidebar: brand header showing the TOOL's own mark + name (pass `appName` + `appIcon`, the same glyph as your favicon), grouped nav with active state, and the account footer + 'an Enjab product' byline. Plugs straight into Enjab Auth: pass the getUser() result as `user` (it has name + email) plus a sign-out handler.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["https://ui.enjab.ae/r/logo.json", "https://ui.enjab.ae/r/sidebar-footer.json"],
+      "registryDependencies": ["https://ui.enjab.ae/r/app-mark.json", "https://ui.enjab.ae/r/sidebar-footer.json"],
       "files": [
         { "path": "src/components/enjab/sidebar.tsx", "type": "registry:ui", "target": "components/enjab/sidebar.tsx" }
       ]

@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { animate, motion, useInView } from "motion/react";
 import { ArrowRight, Baby, HeartPulse, Microscope, Stethoscope } from "lucide-react";
-import { Logo } from "@/components/enjab/logo";
+import { AppMark } from "@/components/enjab/app-mark";
+import { EnjabByline } from "@/components/enjab/enjab-byline";
 import { Reveal } from "@/components/enjab/reveal";
 
 const hover = { duration: 0.22, ease: [0.4, 0, 0.2, 1] as const };
@@ -45,7 +46,7 @@ export default function LandingPage() {
       {/* nav */}
       <header className="sticky top-0 z-40 border-b bg-white/85 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <Logo size={34} />
+          <AppMark name="Enjab Medical Centre" glyph={<HeartPulse strokeWidth={2.4} />} size={32} />
           <nav className="hidden items-center gap-7 text-sm font-semibold text-muted-foreground md:flex">
             <span>About</span>
             <span>Services</span>
@@ -171,6 +172,7 @@ export default function LandingPage() {
       </main>
 
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">
+        <EnjabByline className="mb-4 justify-center" />
         Landing demo · motion by Framer Motion ·{" "}
         <Link href="/" className="font-semibold text-teal hover:underline">
           Back to Enjab UI

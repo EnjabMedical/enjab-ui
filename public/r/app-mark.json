@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "app-mark",
+  "title": "App Mark",
+  "description": "A tool's OWN brand mark: the gradient favicon square + the tool name. Goes at the top of the sidebar and on landing navbars (each tool shows its own identity). Pass `name` and `glyph` (the same glyph as your favicon). The Enjab logo is only for the 'an Enjab product' byline.",
+  "files": [
+    {
+      "path": "src/components/enjab/app-mark.tsx",
+      "content": "import type { ReactNode } from \"react\";\nimport Link from \"next/link\";\nimport { cn } from \"@/lib/utils\";\n\n/**\n * A tool's OWN brand mark: the gradient \"favicon\" square + the tool name. Use this\n * (not the Enjab logo) at the top of the sidebar and on a landing navbar, so each\n * tool shows ITS identity. The Enjab logo belongs only in the \"an Enjab product\"\n * byline (@enjab-ui/enjab-byline / sidebar-footer).\n *\n * `glyph` MUST match your favicon's GLYPH (same icon/letter) so the browser-tab icon\n * and this on-screen mark are identical, pass the same SVG/icon you used in\n * app/icon.tsx. Defaults to the first letter of `name`. AppMark sizes + whitens the\n * glyph for you, so just pass `<MyIcon />` or your inline `<svg>`.\n */\nexport function AppMark({\n  name,\n  glyph,\n  size = 28,\n  showName = true,\n  href,\n  className,\n}: {\n  name: string;\n  glyph?: ReactNode;\n  size?: number;\n  showName?: boolean;\n  href?: string;\n  className?: string;\n}) {\n  const inner = (\n    <span className={cn(\"flex items-center gap-2.5\", className)}>\n      <span\n        style={{ width: size, height: size }}\n        className=\"flex shrink-0 items-center justify-center rounded-[25%] bg-[linear-gradient(135deg,#057C8B_0%,#1B3766_100%)] text-white\"\n      >\n        {glyph ? (\n          <span className=\"flex size-full items-center justify-center [&_svg]:size-[55%]\">\n            {glyph}\n          </span>\n        ) : (\n          <span className=\"font-heading font-bold leading-none\" style={{ fontSize: size * 0.5 }}>\n            {name.charAt(0).toUpperCase()}\n          </span>\n        )}\n      </span>\n      {showName ? (\n        <span className=\"truncate font-heading text-[15px] font-bold tracking-tight text-navy\">\n          {name}\n        </span>\n      ) : null}\n    </span>\n  );\n\n  return href ? (\n    <Link href={href} className=\"inline-flex min-w-0\">\n      {inner}\n    </Link>\n  ) : (\n    inner\n  );\n}\n",
+      "type": "registry:ui",
+      "target": "components/enjab/app-mark.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

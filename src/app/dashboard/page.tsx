@@ -80,7 +80,8 @@ export default function DashboardPage() {
     <DashboardShell
       sidebar={
         <Sidebar
-          badge="UI"
+          appName="Enjab Medical Centre"
+          appIcon={<Activity strokeWidth={2.4} />}
           activeHref="/dashboard"
           groups={groups}
           user={{ name: "Layla Ahmed", email: "layla@enjab.ae", initial: "L" }}
