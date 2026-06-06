@@ -20,6 +20,17 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06f",
+    date: "6 Jun 2026",
+    title: "Alert component (success / info / warning / danger)",
+    changed: [
+      "New @enjab-ui/alert: one consistent in-page message box in four tones. Icon + title carry the meaning, so status is never color alone. Replaces hand-rolled colored notice boxes.",
+    ],
+    action: [
+      "Install: npx shadcn add @enjab-ui/alert. Use it for persistent, view-tied messages (form errors, warnings, success/info notices). Keep using a toast for transient feedback and status-pill for per-row status.",
+    ],
+  },
+  {
     version: "2026.06.06e",
     date: "6 Jun 2026",
     title: "Tables are strict now (no more ugly tables)",

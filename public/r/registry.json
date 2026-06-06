@@ -83,6 +83,16 @@
       ]
     },
     {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "In-page message box in four tones (success, info, warning, danger). Icon + title carry the meaning; status is never color alone. Use it for persistent, view-tied messages (form errors, warnings, notices); use a toast for transient feedback and status-pill for per-row status.",
+      "dependencies": ["lucide-react"],
+      "files": [
+        { "path": "src/components/enjab/alert.tsx", "type": "registry:ui", "target": "components/enjab/alert.tsx" }
+      ]
+    },
+    {
       "name": "stat-card",
       "type": "registry:ui",
       "title": "Stat Card",

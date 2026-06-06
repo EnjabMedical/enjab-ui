@@ -40,7 +40,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Alert } from "@/components/enjab/alert";
 import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
@@ -259,13 +259,20 @@ export default function ComponentsPage() {
           </Block>
 
           <Block title="Alert">
-            <Alert>
-              <Info />
-              <AlertTitle>17 lab results pending review</AlertTitle>
-              <AlertDescription>
+            <div className="flex flex-col gap-3">
+              <Alert tone="success" title="Patient record saved">
+                All changes are synced across Enjab tools.
+              </Alert>
+              <Alert tone="info" title="17 lab results pending review">
                 Three are flagged as urgent and need a doctor sign-off.
-              </AlertDescription>
-            </Alert>
+              </Alert>
+              <Alert tone="warning" title="2FA not enabled">
+                Add an authenticator to keep this account secure.
+              </Alert>
+              <Alert tone="danger" title="Couldn't save changes">
+                The server rejected the update. Check the fields and try again.
+              </Alert>
+            </div>
           </Block>
 
           <Block title="Progress, avatar, skeleton">

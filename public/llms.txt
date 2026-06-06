@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06e
+Version: 2026.06.06f
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -46,6 +46,7 @@ else, keep the change surface minimal.
 - theme : Enjab design tokens (colors, fonts, radius, sidebar, charts). Install first.
 - button : pill-shaped button with a `navy` variant.
 - status-pill : colored dot plus label. Status is never color alone.
+- alert : in-page message box in four tones (success, info, warning, danger). Icon + title carry the meaning. Pass `tone`, `title`, and optional body/`action`.
 - stat-card : KPI card with a mono value and trend delta.
 - logo : Enjab logo. Light backgrounds only.
 - reveal : Framer Motion scroll reveal. Landing pages only.
@@ -71,6 +72,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Typography: headings use Inter Display, body/UI uses Satoshi, all numbers/IDs/times use Fragment Mono (the `font-data` class). Never put a heading in Satoshi.
 - Color: teal #057C8B is primary, navy #1B3766 is depth. Always reference tokens (bg-teal, text-navy, bg-success, text-muted-foreground, etc.), never hardcode hex.
 - Status colors (success #42AF48, warning #E0A100, danger #D64545, info #0099FF) mean status. Never color alone; pair with text or an icon.
+- Feedback has three components, don't hand-roll your own colored boxes. Use @enjab-ui/alert for a PERSISTENT message tied to the current view (form/validation errors, a warning before a destructive action, a success notice that should stay, an informational note). Use a toast (sonner) for TRANSIENT "it worked / it failed" feedback right after an action. Use @enjab-ui/status-pill for the status of a single row or item. Alert tones map to meaning: success = it worked / safe, info = neutral context, warning = caution / needs attention, danger = error / blocked. Always keep the icon and a worded title; never rely on color alone.
 - Logo on light backgrounds only. No reversed/white logo exists.
 - Motion: animations belong on landing/marketing pages only, implemented with Framer Motion. Dashboards and internal tools stay still (instant color/state changes only) for usability.
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
