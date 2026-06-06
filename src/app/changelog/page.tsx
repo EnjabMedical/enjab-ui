@@ -20,6 +20,16 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06e",
+    date: "6 Jun 2026",
+    title: "Tables are strict now (no more ugly tables)",
+    changed: [
+      "data-table is fully self-styled: comfortable rows, mono uppercase headers, soft line separators, and a canvas hover, all enforced inside the component. It no longer inherits the cramped shadcn table defaults, so every Enjab tool's tables look identical to the demo dashboard.",
+      "The base table primitive is Enjab-styled too (same padding, header, borders, hover), so even a raw table can't drift.",
+    ],
+    action: ["Re-install: npx shadcn add @enjab-ui/data-table. Build all tables from it (never hand-roll a table)."],
+  },
+  {
     version: "2026.06.06d",
     date: "6 Jun 2026",
     title: "Account block is now identical everywhere",

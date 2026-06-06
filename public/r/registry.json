@@ -163,8 +163,7 @@
       "name": "data-table",
       "type": "registry:ui",
       "title": "Data Table",
-      "description": "The Enjab data table: bordered card, mono uppercase headers, optional title, empty state. Pass columns + rows; cells stay flexible.",
-      "registryDependencies": ["table"],
+      "description": "The Enjab data table: fully self-styled bordered card, mono uppercase headers, comfortable rows with soft separators and canvas hover, optional title, empty state. Pass columns + rows; cells stay flexible.",
       "files": [
         { "path": "src/components/enjab/data-table.tsx", "type": "registry:ui", "target": "components/enjab/data-table.tsx" }
       ]

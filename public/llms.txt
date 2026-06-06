@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06d
+Version: 2026.06.06e
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -55,7 +55,7 @@ else, keep the change surface minimal.
 - sidebar : the dashboard sidebar (brand header + grouped nav with active state + account footer + byline). Plugs into Enjab Auth (pass the user email + sign-out).
 - dashboard-shell : the dashboard layout (fixed sidebar + scrollable main column). Compose with sidebar + page-header.
 - page-header : the dashboard topbar (title, subtitle, action slot). Aligns with the sidebar brand header.
-- data-table : the Enjab data table (bordered card, mono uppercase headers, optional title, empty state). Pass columns + rows; cells stay flexible.
+- data-table : the Enjab data table, fully self-styled (bordered card, mono uppercase headers, comfortable rows with soft separators and a canvas hover, optional title, empty state). Enforced look, identical everywhere. Pass columns + rows; cells stay flexible.
 
 ## Fonts (load these; the theme references them by name)
 
