@@ -13,8 +13,15 @@ export type SidebarNavGroup = { label?: string; items: SidebarNavItem[] };
 /**
  * The Enjab dashboard sidebar: brand header (aligned to the topbar), grouped nav
  * with active state, and the required account footer + "an Enjab product" byline.
- * Built to plug into Enjab Auth: pass the signed-in user's email + a sign-out
- * handler. Do not re-implement, every Enjab tool uses this.
+ *
+ * Plugs straight into Enjab Auth. The `user` prop is shaped to take the result of
+ * the Enjab Auth `getUser()` call directly (it has `name` + `email`), so the account
+ * block shows the real signed-in person:
+ *
+ *   const user = await getUser();            // from Enjab Auth (auth.enjab.ae/llms.txt)
+ *   <Sidebar user={user} onSignOut={signOut} groups={groups} />
+ *
+ * Do not re-implement, every Enjab tool uses this.
  */
 export function Sidebar({
   groups,

@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06f
+Version: 2026.06.06g
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -44,7 +44,7 @@ else, keep the change surface minimal.
 ## Components
 
 - theme : Enjab design tokens (colors, fonts, radius, sidebar, charts). Install first.
-- button : pill-shaped button with a `navy` variant.
+- button : pill-shaped button with a `navy` variant and a `loading` prop (disables + shows a spinner while an async action runs).
 - status-pill : colored dot plus label. Status is never color alone.
 - alert : in-page message box in four tones (success, info, warning, danger). Icon + title carry the meaning. Pass `tone`, `title`, and optional body/`action`.
 - stat-card : KPI card with a mono value and trend delta.
@@ -53,7 +53,7 @@ else, keep the change surface minimal.
 - enjab-byline : "an Enjab product" byline. Required on every dashboard.
 - sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
 - favicon : the Enjab favicon. REQUIRED in every project, no exceptions.
-- sidebar : the dashboard sidebar (brand header + grouped nav with active state + account footer + byline). Plugs into Enjab Auth (pass the user email + sign-out).
+- sidebar : the dashboard sidebar (brand header + grouped nav with active state + account footer + byline). Plugs into Enjab Auth: pass the getUser() result as `user` (name + email) + a sign-out handler; the account block shows the real signed-in person.
 - dashboard-shell : the dashboard layout (fixed sidebar + scrollable main column). Compose with sidebar + page-header.
 - page-header : the dashboard topbar (title, subtitle, action slot). Aligns with the sidebar brand header.
 - data-table : the Enjab data table, fully self-styled (bordered card, mono uppercase headers, comfortable rows with soft separators and a canvas hover, optional title, empty state). Enforced look, identical everywhere. Pass columns + rows; cells stay flexible.
@@ -74,6 +74,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Status colors (success #42AF48, warning #E0A100, danger #D64545, info #0099FF) mean status. Never color alone; pair with text or an icon.
 - Feedback has three components, don't hand-roll your own colored boxes. Use @enjab-ui/alert for a PERSISTENT message tied to the current view (form/validation errors, a warning before a destructive action, a success notice that should stay, an informational note). Use a toast (sonner) for TRANSIENT "it worked / it failed" feedback right after an action. Use @enjab-ui/status-pill for the status of a single row or item. Alert tones map to meaning: success = it worked / safe, info = neutral context, warning = caution / needs attention, danger = error / blocked. Always keep the icon and a worded title; never rely on color alone.
 - Logo on light backgrounds only. No reversed/white logo exists.
+- Buttons that trigger a slow action (network request, server action, async submit) MUST give feedback: disable the button and show a spinner while it runs, so it can't be double-clicked and the user knows something is happening. Use the button's `loading` prop: `<Button loading={busy}>Save</Button>` (it disables + shows the spinner). For a form posting to a server action, drive it with useFormStatus: `const { pending } = useFormStatus()` then `<Button loading={pending}>`. Never leave a button clickable and silent during a slow action.
 - Motion: animations belong on landing/marketing pages only, implemented with Framer Motion. Dashboards and internal tools stay still (instant color/state changes only) for usability.
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.

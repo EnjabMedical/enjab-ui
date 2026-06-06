@@ -43,14 +43,30 @@ function Button({
   className,
   variant = "default",
   size = "default",
+  loading = false,
+  disabled,
+  children,
   ...props
-}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants>) {
+}: ButtonPrimitive.Props & VariantProps<typeof buttonVariants> & { loading?: boolean }) {
+  // When `loading`, the button disables itself and shows a spinner, so an async
+  // action can't be double-fired and the user gets immediate feedback. Enjab rule:
+  // any button whose action takes time uses this instead of staying clickable.
   return (
     <ButtonPrimitive
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
+      disabled={loading || disabled}
+      aria-busy={loading || undefined}
       {...props}
-    />
+    >
+      {loading ? (
+        <span
+          aria-hidden
+          className="size-4 shrink-0 animate-spin rounded-full border-2 border-current border-r-transparent opacity-60"
+        />
+      ) : null}
+      {children}
+    </ButtonPrimitive>
   )
 }
 

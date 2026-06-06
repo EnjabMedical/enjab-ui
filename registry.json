@@ -162,7 +162,7 @@
       "name": "sidebar",
       "type": "registry:ui",
       "title": "Sidebar",
-      "description": "The Enjab dashboard sidebar: brand header, grouped nav with active state, and the account footer + byline. Plugs into Enjab Auth (pass the user email + sign-out).",
+      "description": "The Enjab dashboard sidebar: brand header, grouped nav with active state, and the account footer + byline. Plugs straight into Enjab Auth: pass the getUser() result as `user` (it has name + email) plus a sign-out handler, and the account block shows the real signed-in person.",
       "dependencies": ["lucide-react"],
       "registryDependencies": ["https://ui.enjab.ae/r/logo.json", "https://ui.enjab.ae/r/sidebar-footer.json"],
       "files": [

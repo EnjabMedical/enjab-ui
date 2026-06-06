@@ -20,6 +20,17 @@ type Entry = {
 
 const entries: Entry[] = [
   {
+    version: "2026.06.06g",
+    date: "6 Jun 2026",
+    title: "Buttons show a loading state",
+    changed: [
+      "Button gained a `loading` prop: it disables itself and shows a spinner while an async action runs. New rule: any button whose action takes time must use it (or useFormStatus for server-action forms), never stay clickable and silent.",
+    ],
+    action: [
+      "Re-install: npx shadcn add @enjab-ui/button. Use <Button loading={busy}>…</Button> for slow actions.",
+    ],
+  },
+  {
     version: "2026.06.06f",
     date: "6 Jun 2026",
     title: "Alert component (success / info / warning / danger)",

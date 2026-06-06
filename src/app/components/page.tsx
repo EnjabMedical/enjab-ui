@@ -105,6 +105,7 @@ export default function ComponentsPage() {
                 <Settings />
               </Button>
               <Button disabled>Disabled</Button>
+              <Button loading>Saving</Button>
               <Button>
                 <Plus /> New
               </Button>
