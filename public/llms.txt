@@ -1,6 +1,6 @@
 # Enjab UI
 
-Version: 2026.06.06g
+Version: 2026.06.06h
 
 The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
 
@@ -52,7 +52,7 @@ else, keep the change surface minimal.
 - reveal : Framer Motion scroll reveal. Landing pages only.
 - enjab-byline : "an Enjab product" byline. Required on every dashboard.
 - sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
-- favicon : the Enjab favicon. REQUIRED in every project, no exceptions.
+- favicon : the Enjab favicon, code-generated (app/icon.tsx + app/apple-icon.tsx). REQUIRED in every project. Edit the GLYPH constant to swap the letter or use any Lucide icon, same gradient + shape.
 - sidebar : the dashboard sidebar (brand header + grouped nav with active state + account footer + byline). Plugs into Enjab Auth: pass the getUser() result as `user` (name + email) + a sign-out handler; the account block shows the real signed-in person.
 - dashboard-shell : the dashboard layout (fixed sidebar + scrollable main column). Compose with sidebar + page-header.
 - page-header : the dashboard topbar (title, subtitle, action slot). Aligns with the sidebar brand header.
@@ -79,7 +79,7 @@ CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi
 - Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
 - App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
 - Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
-- ALWAYS ship a favicon, INCLUDING a raster (.ico), because Safari ignores SVG-only favicons and shows a blank tab. Ship all three: app/icon.svg (@enjab-ui/favicon) + app/favicon.ico (https://ui.enjab.ae/favicon.ico) + app/apple-icon.png (https://ui.enjab.ae/apple-icon.png). SVG-only is not done.
+- ALWAYS ship the favicon via @enjab-ui/favicon. It adds app/icon.tsx + app/apple-icon.tsx: code-generated PNG icons (the Enjab gradient square + a glyph), which render correctly in Safari, so no separate .ico is needed. To brand a tool, edit the GLYPH constant at the top of app/icon.tsx (and app/apple-icon.tsx): use a different letter, or any Lucide icon, keeping the same gradient and shape. Default is the letter "E". Never ship a project without it. (If you previously had a static app/icon.svg from an older version, delete it so it doesn't clash.)
 - Navigation must be INSTANT. Every data-fetching route ships a Next.js loading.tsx skeleton that mirrors the page and shows immediately while data loads. Never a blank or frozen screen. Skeletons = animate-pulse on bg-muted, sized to the real content (no layout shift).
 - Build the dashboard CHROME from the ready components: @enjab-ui/dashboard-shell + @enjab-ui/sidebar + @enjab-ui/page-header + @enjab-ui/data-table. NEVER hand-roll the sidebar, topbar, or table, reimplementing them is what causes drift. Only the cell content / page content is custom.
 - English, left to right.

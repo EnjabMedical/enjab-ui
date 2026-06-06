@@ -2,13 +2,19 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "favicon",
   "title": "Favicon",
-  "description": "The Enjab favicon. REQUIRED in every Enjab project, no exceptions. Drops into the Next.js app dir.",
+  "description": "The Enjab favicon, code-generated. REQUIRED in every Enjab project, no exceptions. A gradient square with a glyph (default the letter 'E'); edit the GLYPH constant to use a different letter or any Lucide icon, same look. PNG output, so it works in Safari (no .ico needed). Drops app/icon.tsx + app/apple-icon.tsx into the Next.js app dir.",
   "files": [
     {
-      "path": "src/app/icon.svg",
-      "content": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 64 64\" width=\"64\" height=\"64\">\n  <defs>\n    <linearGradient id=\"enjab\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\">\n      <stop offset=\"0\" stop-color=\"#057C8B\"/>\n      <stop offset=\"1\" stop-color=\"#1B3766\"/>\n    </linearGradient>\n  </defs>\n  <rect width=\"64\" height=\"64\" rx=\"16\" fill=\"url(#enjab)\"/>\n  <text x=\"32\" y=\"34\" text-anchor=\"middle\" dominant-baseline=\"central\"\n        font-family=\"Arial, Helvetica, sans-serif\" font-size=\"40\" font-weight=\"700\" fill=\"#ffffff\">E</text>\n</svg>\n",
+      "path": "registry/favicon/icon.tsx",
+      "content": "import { ImageResponse } from \"next/og\";\nimport type { ReactNode } from \"react\";\n\n// ── Brand the favicon here ──────────────────────────────────────────────────\n// Default: the letter \"E\" on the Enjab gradient. Keep the gradient + rounding the\n// same so every Enjab tool stays visually consistent; only change the glyph.\n//\n//   • Different letter:  const GLYPH = \"W\";\n//   • An icon instead:   import { Stethoscope } from \"lucide-react\";\n//                        const GLYPH = <Stethoscope width={36} height={36}\n//                                        color=\"#fff\" strokeWidth={2.5} />;\nconst GLYPH: ReactNode = \"E\";\n// ────────────────────────────────────────────────────────────────────────────\n\nexport const size = { width: 64, height: 64 };\nexport const contentType = \"image/png\";\n\nexport default function Icon() {\n  return new ImageResponse(\n    (\n      <div\n        style={{\n          width: \"100%\",\n          height: \"100%\",\n          display: \"flex\",\n          alignItems: \"center\",\n          justifyContent: \"center\",\n          borderRadius: 16,\n          background: \"linear-gradient(135deg, #057C8B 0%, #1B3766 100%)\",\n          color: \"#fff\",\n          fontSize: 40,\n          fontWeight: 700,\n          fontFamily: \"Arial, Helvetica, sans-serif\",\n        }}\n      >\n        {GLYPH}\n      </div>\n    ),\n    size\n  );\n}\n",
       "type": "registry:file",
-      "target": "src/app/icon.svg"
+      "target": "src/app/icon.tsx"
+    },
+    {
+      "path": "registry/favicon/apple-icon.tsx",
+      "content": "import { ImageResponse } from \"next/og\";\nimport type { ReactNode } from \"react\";\n\n// The Apple touch icon. Keep GLYPH in sync with app/icon.tsx. iOS rounds the\n// corners itself, so this one is full-bleed (no border radius).\nconst GLYPH: ReactNode = \"E\";\n\nexport const size = { width: 180, height: 180 };\nexport const contentType = \"image/png\";\n\nexport default function AppleIcon() {\n  return new ImageResponse(\n    (\n      <div\n        style={{\n          width: \"100%\",\n          height: \"100%\",\n          display: \"flex\",\n          alignItems: \"center\",\n          justifyContent: \"center\",\n          background: \"linear-gradient(135deg, #057C8B 0%, #1B3766 100%)\",\n          color: \"#fff\",\n          fontSize: 110,\n          fontWeight: 700,\n          fontFamily: \"Arial, Helvetica, sans-serif\",\n        }}\n      >\n        {GLYPH}\n      </div>\n    ),\n    size\n  );\n}\n",
+      "type": "registry:file",
+      "target": "src/app/apple-icon.tsx"
     }
   ],
   "type": "registry:item"

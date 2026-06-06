@@ -182,9 +182,10 @@
       "name": "favicon",
       "type": "registry:item",
       "title": "Favicon",
-      "description": "The Enjab favicon. REQUIRED in every Enjab project, no exceptions. Drops into the Next.js app dir.",
+      "description": "The Enjab favicon, code-generated. REQUIRED in every Enjab project, no exceptions. A gradient square with a glyph (default the letter 'E'); edit the GLYPH constant to use a different letter or any Lucide icon, same look. PNG output, so it works in Safari (no .ico needed). Drops app/icon.tsx + app/apple-icon.tsx into the Next.js app dir.",
       "files": [
-        { "path": "src/app/icon.svg", "type": "registry:file", "target": "src/app/icon.svg" }
+        { "path": "registry/favicon/icon.tsx", "type": "registry:file", "target": "src/app/icon.tsx" },
+        { "path": "registry/favicon/apple-icon.tsx", "type": "registry:file", "target": "src/app/apple-icon.tsx" }
       ]
     }
   ]
