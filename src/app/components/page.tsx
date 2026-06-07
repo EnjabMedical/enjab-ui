@@ -140,7 +140,15 @@ export default function ComponentsPage() {
               </div>
               <div className="grid gap-1.5">
                 <Label htmlFor="dept">Department</Label>
-                <Select defaultValue="obgyn">
+                <Select
+                  defaultValue="obgyn"
+                  items={[
+                    { value: "obgyn", label: "Ob / Gyn" },
+                    { value: "peds", label: "Pediatrics" },
+                    { value: "derma", label: "Dermatology" },
+                    { value: "dental", label: "Dentistry" },
+                  ]}
+                >
                   <SelectTrigger id="dept" className="w-full">
                     <SelectValue />
                   </SelectTrigger>

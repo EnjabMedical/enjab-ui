@@ -19,7 +19,7 @@ const status = [
   { name: "Warning", hex: "#E0A100", cls: "bg-warning" },
   { name: "Danger", hex: "#D64545", cls: "bg-danger" },
   { name: "Info", hex: "#0099FF", cls: "bg-info" },
-  { name: "Data 5", hex: "#89AAD9", cls: "bg-[#89AAD9]" },
+  { name: "Data 5", hex: "#89AAD9", cls: "bg-chart-5" },
 ];
 
 function Swatch({ name, role, hex, cls }: { name: string; role?: string; hex: string; cls: string }) {
