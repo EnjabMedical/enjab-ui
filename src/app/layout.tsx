@@ -19,7 +19,8 @@ const fragmentMono = Fragment_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Enjab UI",
+  // Browser tab titles read "Page - Enjab UI"; the home page uses the bare service name.
+  title: { default: "Enjab UI", template: "%s - Enjab UI" },
   description:
     "The Enjab design system in code. Themed shadcn/ui for employee-facing dashboards and internal tools.",
 };
