@@ -45,16 +45,26 @@ import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { appointments } from "@/lib/demo-data";
+import { DataTable, type Column } from "@/components/enjab/data-table";
+import { appointments, type Appointment } from "@/lib/demo-data";
 import { cn } from "@/lib/utils";
+
+const tableColumns: Column<Appointment>[] = [
+  {
+    header: "Patient",
+    sortValue: (a) => a.patient,
+    cell: (a) => a.patient,
+    className: "font-semibold text-foreground",
+  },
+  { header: "File ID", sortValue: (a) => a.file, cell: (a) => a.file, className: "font-data text-navy" },
+  { header: "Department", sortValue: (a) => a.department, cell: (a) => a.department },
+  { header: "Time", sortValue: (a) => a.time, cell: (a) => a.time, className: "font-data" },
+  {
+    header: "Status",
+    sortValue: (a) => a.statusLabel,
+    cell: (a) => <StatusPill status={a.status}>{a.statusLabel}</StatusPill>,
+  },
+];
 
 function Block({
   title,
@@ -308,30 +318,15 @@ export default function ComponentsPage() {
         </div>
 
         <Block title="Table" className="mt-5">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Patient</TableHead>
-                <TableHead>File ID</TableHead>
-                <TableHead>Department</TableHead>
-                <TableHead>Time</TableHead>
-                <TableHead>Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {appointments.slice(0, 5).map((a) => (
-                <TableRow key={a.file}>
-                  <TableCell className="font-semibold text-foreground">{a.patient}</TableCell>
-                  <TableCell className="font-data text-navy">{a.file}</TableCell>
-                  <TableCell>{a.department}</TableCell>
-                  <TableCell className="font-data">{a.time}</TableCell>
-                  <TableCell>
-                    <StatusPill status={a.status}>{a.statusLabel}</StatusPill>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+          <p className="mb-3 text-sm text-muted-foreground">
+            Click a column header to sort: ascending, descending, then back to the original
+            order. Works for text, numbers, dates, and addition time.
+          </p>
+          <DataTable
+            columns={tableColumns}
+            rows={appointments.slice(0, 5)}
+            getRowKey={(a) => a.file}
+          />
         </Block>
       </main>
     </div>

@@ -50,6 +50,7 @@ const deptColors = ["#057C8B", "#1B3766", "#0099FF", "#42AF48", "#89AAD9"];
 const columns: Column<Appointment>[] = [
   {
     header: "Patient",
+    sortValue: (a) => a.patient,
     cell: (a) => (
       <div className="flex items-center gap-2.5">
         <Avatar className="size-7">
@@ -61,10 +62,14 @@ const columns: Column<Appointment>[] = [
       </div>
     ),
   },
-  { header: "File ID", cell: (a) => a.file, className: "font-data text-navy" },
-  { header: "Department", cell: (a) => a.department },
-  { header: "Time", cell: (a) => a.time, className: "font-data" },
-  { header: "Status", cell: (a) => <StatusPill status={a.status}>{a.statusLabel}</StatusPill> },
+  { header: "File ID", sortValue: (a) => a.file, cell: (a) => a.file, className: "font-data text-navy" },
+  { header: "Department", sortValue: (a) => a.department, cell: (a) => a.department },
+  { header: "Time", sortValue: (a) => a.time, cell: (a) => a.time, className: "font-data" },
+  {
+    header: "Status",
+    sortValue: (a) => a.statusLabel,
+    cell: (a) => <StatusPill status={a.status}>{a.statusLabel}</StatusPill>,
+  },
   {
     header: "Action",
     headClassName: "text-right",
