@@ -68,9 +68,15 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "Enjab pill-shaped button with a navy variant.",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "dependencies": [
+        "@base-ui/react",
+        "class-variance-authority"
+      ],
       "files": [
-        { "path": "src/components/ui/button.tsx", "type": "registry:ui" }
+        {
+          "path": "src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
       ]
     },
     {
@@ -79,7 +85,11 @@
       "title": "Status Pill",
       "description": "Colored dot plus label. Status is never color alone.",
       "files": [
-        { "path": "src/components/enjab/status-pill.tsx", "type": "registry:ui", "target": "components/enjab/status-pill.tsx" }
+        {
+          "path": "src/components/enjab/status-pill.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/status-pill.tsx"
+        }
       ]
     },
     {
@@ -87,9 +97,15 @@
       "type": "registry:ui",
       "title": "Alert",
       "description": "In-page message box in four tones (success, info, warning, danger). Icon + title carry the meaning; status is never color alone. Use it for persistent, view-tied messages (form errors, warnings, notices); use a toast for transient feedback and status-pill for per-row status.",
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
-        { "path": "src/components/enjab/alert.tsx", "type": "registry:ui", "target": "components/enjab/alert.tsx" }
+        {
+          "path": "src/components/enjab/alert.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/alert.tsx"
+        }
       ]
     },
     {
@@ -97,9 +113,15 @@
       "type": "registry:ui",
       "title": "Stat Card",
       "description": "KPI card with a mono value and trend delta.",
-      "dependencies": ["lucide-react"],
+      "dependencies": [
+        "lucide-react"
+      ],
       "files": [
-        { "path": "src/components/enjab/stat-card.tsx", "type": "registry:ui", "target": "components/enjab/stat-card.tsx" }
+        {
+          "path": "src/components/enjab/stat-card.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/stat-card.tsx"
+        }
       ]
     },
     {
@@ -108,7 +130,11 @@
       "title": "Logo",
       "description": "The Enjab parent logo. Light backgrounds only. Use ONLY in the 'an Enjab product' byline, not as a tool's own brand. For a tool's mark use @enjab-ui/app-mark.",
       "files": [
-        { "path": "src/components/enjab/logo.tsx", "type": "registry:ui", "target": "components/enjab/logo.tsx" }
+        {
+          "path": "src/components/enjab/logo.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/logo.tsx"
+        }
       ]
     },
     {
@@ -117,7 +143,11 @@
       "title": "App Mark",
       "description": "A tool's OWN brand mark: the gradient favicon square + the tool name. Goes at the top of the sidebar and on landing navbars (each tool shows its own identity). Pass `name` and `glyph` (the same glyph as your favicon). The Enjab logo is only for the 'an Enjab product' byline.",
       "files": [
-        { "path": "src/components/enjab/app-mark.tsx", "type": "registry:ui", "target": "components/enjab/app-mark.tsx" }
+        {
+          "path": "src/components/enjab/app-mark.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/app-mark.tsx"
+        }
       ]
     },
     {
@@ -125,9 +155,15 @@
       "type": "registry:ui",
       "title": "Reveal",
       "description": "Scroll reveal for landing pages. Framer Motion.",
-      "dependencies": ["motion"],
+      "dependencies": [
+        "motion"
+      ],
       "files": [
-        { "path": "src/components/enjab/reveal.tsx", "type": "registry:ui", "target": "components/enjab/reveal.tsx" }
+        {
+          "path": "src/components/enjab/reveal.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/reveal.tsx"
+        }
       ]
     },
     {
@@ -136,7 +172,11 @@
       "title": "Enjab Byline",
       "description": "Required 'an Enjab product' byline. Bottom of the sidebar, or anywhere if the dashboard has no sidebar.",
       "files": [
-        { "path": "src/components/enjab/enjab-byline.tsx", "type": "registry:ui", "target": "components/enjab/enjab-byline.tsx" }
+        {
+          "path": "src/components/enjab/enjab-byline.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/enjab-byline.tsx"
+        }
       ]
     },
     {
@@ -144,9 +184,15 @@
       "type": "registry:ui",
       "title": "Sidebar Footer",
       "description": "Required bottom of every dashboard sidebar: account block (avatar, email, sign out) plus the Enjab byline. Keeps all Enjab dashboards identical.",
-      "registryDependencies": ["https://ui.enjab.ae/r/enjab-byline.json"],
+      "registryDependencies": [
+        "https://ui.enjab.ae/r/enjab-byline.json"
+      ],
       "files": [
-        { "path": "src/components/enjab/sidebar-footer.tsx", "type": "registry:ui", "target": "components/enjab/sidebar-footer.tsx" }
+        {
+          "path": "src/components/enjab/sidebar-footer.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/sidebar-footer.tsx"
+        }
       ]
     },
     {
@@ -155,7 +201,11 @@
       "title": "Page Header",
       "description": "The dashboard topbar: title, subtitle, and an action slot. Aligns with the sidebar brand header.",
       "files": [
-        { "path": "src/components/enjab/page-header.tsx", "type": "registry:ui", "target": "components/enjab/page-header.tsx" }
+        {
+          "path": "src/components/enjab/page-header.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/page-header.tsx"
+        }
       ]
     },
     {
@@ -164,7 +214,11 @@
       "title": "Dashboard Shell",
       "description": "The dashboard layout: a fixed sidebar + a scrollable main column. Compose with Sidebar + PageHeader.",
       "files": [
-        { "path": "src/components/enjab/dashboard-shell.tsx", "type": "registry:ui", "target": "components/enjab/dashboard-shell.tsx" }
+        {
+          "path": "src/components/enjab/dashboard-shell.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/dashboard-shell.tsx"
+        }
       ]
     },
     {
@@ -172,10 +226,19 @@
       "type": "registry:ui",
       "title": "Sidebar",
       "description": "The Enjab dashboard sidebar: brand header showing the TOOL's own mark + name (pass `appName` + `appIcon`, the same glyph as your favicon), grouped nav with active state, and the account footer + 'an Enjab product' byline. Plugs straight into Enjab Auth: pass the getUser() result as `user` (it has name + email) plus a sign-out handler.",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": ["https://ui.enjab.ae/r/app-mark.json", "https://ui.enjab.ae/r/sidebar-footer.json"],
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://ui.enjab.ae/r/app-mark.json",
+        "https://ui.enjab.ae/r/sidebar-footer.json"
+      ],
       "files": [
-        { "path": "src/components/enjab/sidebar.tsx", "type": "registry:ui", "target": "components/enjab/sidebar.tsx" }
+        {
+          "path": "src/components/enjab/sidebar.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/sidebar.tsx"
+        }
       ]
     },
     {
@@ -184,7 +247,11 @@
       "title": "Data Table",
       "description": "The Enjab data table: fully self-styled bordered card, mono uppercase headers, comfortable rows with soft separators and canvas hover, optional title, empty state. Pass columns + rows; cells stay flexible.",
       "files": [
-        { "path": "src/components/enjab/data-table.tsx", "type": "registry:ui", "target": "components/enjab/data-table.tsx" }
+        {
+          "path": "src/components/enjab/data-table.tsx",
+          "type": "registry:ui",
+          "target": "components/enjab/data-table.tsx"
+        }
       ]
     },
     {
@@ -193,8 +260,33 @@
       "title": "Favicon",
       "description": "The Enjab favicon, code-generated. REQUIRED in every Enjab project, no exceptions. A gradient square with a glyph (default the letter 'E'); edit the GLYPH constant to use a different letter or any Lucide icon, same look. PNG output, so it works in Safari (no .ico needed). Drops app/icon.tsx + app/apple-icon.tsx into the Next.js app dir.",
       "files": [
-        { "path": "registry/favicon/icon.tsx", "type": "registry:file", "target": "src/app/icon.tsx" },
-        { "path": "registry/favicon/apple-icon.tsx", "type": "registry:file", "target": "src/app/apple-icon.tsx" }
+        {
+          "path": "registry/favicon/icon.tsx",
+          "type": "registry:file",
+          "target": "src/app/icon.tsx"
+        },
+        {
+          "path": "registry/favicon/apple-icon.tsx",
+          "type": "registry:file",
+          "target": "src/app/apple-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "not-found",
+      "type": "registry:item",
+      "title": "Not Found (404)",
+      "description": "The Enjab 404 page. REQUIRED in every Enjab project (never the framework default). A centered gradient mark + 404 + a back-home button + the 'an Enjab product' byline. Edit the GLYPH to match your favicon and set the tool name + home href. Drops app/not-found.tsx into the Next.js app dir.",
+      "registryDependencies": [
+        "https://ui.enjab.ae/r/button.json",
+        "https://ui.enjab.ae/r/enjab-byline.json"
+      ],
+      "files": [
+        {
+          "path": "registry/not-found/not-found.tsx",
+          "type": "registry:file",
+          "target": "src/app/not-found.tsx"
+        }
       ]
     }
   ]
