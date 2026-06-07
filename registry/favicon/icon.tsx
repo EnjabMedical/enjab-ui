@@ -7,7 +7,7 @@ import type { ReactNode } from "react";
 //
 //   • Different letter:  const GLYPH = "W";
 //   • An icon instead:   paste the icon's raw SVG (grab the markup from lucide.dev
-//                        or any icon set). Use an inline <svg> — Lucide React
+//                        or any icon set). Use an inline <svg> - Lucide React
 //                        components do NOT render inside this generator. Example:
 //                        const GLYPH = (
 //                          <svg width={36} height={36} viewBox="0 0 24 24" fill="none"
