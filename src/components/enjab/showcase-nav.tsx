@@ -13,7 +13,8 @@ const links = [
   { href: "/components", label: "Components" },
   { href: "/dashboard", label: "Dashboard" },
   { href: "/landing", label: "Landing" },
-  { href: "/changelog", label: "Changelog" },
+  // Docs, changelog and prompts live at the central developer docs, not here.
+  { href: "https://developers.enjab.ae", label: "Docs ↗" },
 ];
 
 export function ShowcaseNav() {

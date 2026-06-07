@@ -129,30 +129,32 @@ export default function Home() {
             For agents &amp; developers
           </h2>
           <div className="mt-4 rounded-2xl border bg-card p-7">
-            <h3 className="text-xl font-bold text-navy">Point an agent at this URL</h3>
+            <h3 className="text-xl font-bold text-navy">The docs live at developers.enjab.ae</h3>
             <p className="mt-2 max-w-2xl text-muted-foreground">
-              Give an agent <span className="font-data text-teal">ui.enjab.ae/llms.txt</span> and it
-              themes any project to match Enjab, with no other input.
+              Setup, the full component reference, the rules, and the changelog are in the central
+              Enjab developer docs, written for humans and coding agents. This site stays the live
+              showcase and the component registry. Point an agent at{" "}
+              <span className="font-data text-teal">developers.enjab.ae/llms.txt</span> and it can
+              theme any project to match Enjab.
             </p>
-            <div className="mt-5 overflow-x-auto rounded-xl bg-[#0e1b2a] p-4 font-data text-[12.5px] leading-relaxed text-[#cfe8ec]">
-              <div className="text-[#8fb3c9]"># install the theme first, then any component</div>
-              <div>npx shadcn@latest add https://ui.enjab.ae/r/theme.json</div>
-              <div>npx shadcn@latest add https://ui.enjab.ae/r/button.json</div>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Button
+                size="lg"
+                nativeButton={false}
+                render={<a href="https://developers.enjab.ae/docs/enjab-ui" />}
+              >
+                Read the docs <ArrowRight className="size-4" />
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                nativeButton={false}
+                render={<a href="https://developers.enjab.ae/docs/changelog" />}
+              >
+                Changelog
+              </Button>
             </div>
-            <p className="mt-4 text-sm text-muted-foreground">
-              Or register the namespace in <span className="font-data">components.json</span>:
-            </p>
-            <div className="mt-2 overflow-x-auto rounded-xl bg-[#0e1b2a] p-4 font-data text-[12.5px] leading-relaxed text-[#cfe8ec]">
-              <div>{`"registries": { "@enjab-ui": "https://ui.enjab.ae/r/{name}.json" }`}</div>
-              <div>npx shadcn@latest add @enjab-ui/button</div>
-            </div>
-            <p className="mt-6 font-bold text-navy">Updating an existing project</p>
-            <p className="mt-1 max-w-2xl text-sm text-muted-foreground">
-              Send your agent this message (full prompt and changelog at{" "}
-              <a href="/changelog" className="font-semibold text-teal hover:underline">ui.enjab.ae/changelog</a>):
-            </p>
-            <pre className="mt-2 overflow-x-auto rounded-xl bg-[#0e1b2a] p-4 font-data text-[12.5px] leading-relaxed whitespace-pre-wrap text-[#cfe8ec]">{`Update this project to the latest Enjab UI. Read https://ui.enjab.ae/llms.txt and https://ui.enjab.ae/changelog, apply only the changelog items not yet adopted, re-install changed components with npx shadcn add @enjab-ui/<name>, and do not refactor anything else.`}</pre>
-            <div className="mt-5 flex flex-wrap gap-2 text-xs">
+            <div className="mt-6 flex flex-wrap gap-2 text-xs">
               {["light mode only", "Inter Display headings", "Satoshi body", "font-data numbers", "motion landing-only"].map((t) => (
                 <span key={t} className="rounded-full bg-teal-tint px-2.5 py-1 font-data text-teal">{t}</span>
               ))}

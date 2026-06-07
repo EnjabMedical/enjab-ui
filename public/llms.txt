@@ -1,94 +1,20 @@
 # Enjab UI
 
-Version: 2026.06.06l
+The Enjab UI documentation has moved to the central Enjab developer docs, written for both
+humans and coding agents. ui.enjab.ae now serves only the live showcase and the component
+registry; it no longer hosts docs, the changelog, or update prompts.
 
-The Enjab Medical Centre design system, published as a shadcn registry. Hand an agent this file (https://ui.enjab.ae/llms.txt) and it can theme any project to match Enjab with no other input.
+- Docs: https://developers.enjab.ae/docs/enjab-ui
+- Full index for agents (llms.txt): https://developers.enjab.ae/llms.txt
+- Changelog: https://developers.enjab.ae/docs/changelog
+
+This domain hosts the shadcn component registry. Install from here:
 
 - Registry base: https://ui.enjab.ae/r/{name}.json
 - Namespace: @enjab-ui
-- Index of all items: https://ui.enjab.ae/r/registry.json
-- Changelog and update prompt: https://ui.enjab.ae/changelog
-- Live showcase: https://ui.enjab.ae (overview, components, dashboard, landing)
+- Install the theme first, then any component:
+    npx shadcn@latest add https://ui.enjab.ae/r/theme.json
+    npx shadcn@latest add @enjab-ui/button
 
-## Setup (pick one)
-
-Direct, zero config:
-```
-npx shadcn@latest add https://ui.enjab.ae/r/theme.json
-npx shadcn@latest add https://ui.enjab.ae/r/button.json
-```
-
-Namespaced (add to components.json, then use @enjab-ui/<name>):
-```
-"registries": { "@enjab-ui": "https://ui.enjab.ae/r/{name}.json" }
-```
-```
-npx shadcn@latest add @enjab-ui/button
-```
-
-Install `theme` FIRST. It sets the Enjab design tokens that every component depends on.
-
-## Updating an existing project
-
-When Enjab UI changes, the changelog lists exactly what to do per change: https://ui.enjab.ae/changelog
-
-A user updates a project by sending their agent this message:
-```
-Update this project to the latest Enjab UI. Read https://ui.enjab.ae/llms.txt and
-https://ui.enjab.ae/changelog, then apply ONLY the changelog items this project has
-not adopted yet. Re-install changed components with `npx shadcn add @enjab-ui/<name>`
-(overwrite). Re-apply the theme if tokens changed. Do not refactor or restyle anything
-else, keep the change surface minimal.
-```
-
-## Components
-
-- theme : Enjab design tokens (colors, fonts, radius, sidebar, charts). Install first.
-- button : pill-shaped button with a `navy` variant and a `loading` prop (disables + shows a spinner while an async action runs).
-- status-pill : colored dot plus label. Status is never color alone.
-- alert : in-page message box in four tones (success, info, warning, danger). Icon + title carry the meaning. Pass `tone`, `title`, and optional body/`action`.
-- stat-card : KPI card with a mono value and trend delta.
-- logo : the Enjab PARENT logo. Light backgrounds only. Use ONLY in the "an Enjab product" byline, never as a tool's own brand.
-- app-mark : a tool's OWN brand mark (the gradient favicon square + the tool name). Use at the top of the sidebar and on landing navbars. Pass `name` + `glyph` (the same glyph as your favicon).
-- reveal : Framer Motion scroll reveal. Landing pages only.
-- enjab-byline : "an Enjab product" byline. Required on every dashboard.
-- sidebar-footer : required sidebar bottom. Account block (avatar, email, sign out) plus the Enjab byline. Keeps all dashboards identical.
-- favicon : the Enjab favicon, code-generated (app/icon.tsx + app/apple-icon.tsx). REQUIRED in every project. Edit the GLYPH constant to swap the letter or paste an icon's inline SVG, same gradient + shape.
-- sidebar : the dashboard sidebar. The brand header shows the TOOL's own mark + name (pass `appName` + `appIcon`, the same glyph as your favicon), not the Enjab logo. Grouped nav with active state + account footer + "an Enjab product" byline. Plugs into Enjab Auth: pass the getUser() result as `user` (name + email) + a sign-out handler.
-- dashboard-shell : the dashboard layout (fixed sidebar + scrollable main column). Compose with sidebar + page-header.
-- page-header : the dashboard topbar (title, subtitle, action slot). Aligns with the sidebar brand header.
-- data-table : the Enjab data table, fully self-styled (bordered card, mono uppercase headers, comfortable rows with soft separators and a canvas hover, optional title, empty state). Enforced look, identical everywhere. Pass columns + rows; cells stay flexible.
-
-## Fonts (load these; the theme references them by name)
-
-- Headings: Inter (Display optical size). Google Fonts, or next/font Inter.
-- Body / UI: Satoshi. Fontshare: https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap
-- Data (numbers, IDs, times): Fragment Mono. Google Fonts.
-
-CSS variables exposed by the theme: --font-heading (Inter), --font-sans (Satoshi), --font-mono (Fragment Mono). Apply headings with the heading font, body with sans, data with mono.
-
-## Rules (follow when building any Enjab interface)
-
-- Light mode only. Never add a dark theme or dark: variants.
-- Typography: headings use Inter Display, body/UI uses Satoshi, all numbers/IDs/times use Fragment Mono (the `font-data` class). Never put a heading in Satoshi.
-- Color: teal #057C8B is primary, navy #1B3766 is depth. Always reference tokens (bg-teal, text-navy, bg-success, text-muted-foreground, etc.), never hardcode hex.
-- Status colors (success #42AF48, warning #E0A100, danger #D64545, info #0099FF) mean status. Never color alone; pair with text or an icon.
-- Feedback has three components, don't hand-roll your own colored boxes. Use @enjab-ui/alert for a PERSISTENT message tied to the current view (form/validation errors, a warning before a destructive action, a success notice that should stay, an informational note). Use a toast (sonner) for TRANSIENT "it worked / it failed" feedback right after an action. Use @enjab-ui/status-pill for the status of a single row or item. Alert tones map to meaning: success = it worked / safe, info = neutral context, warning = caution / needs attention, danger = error / blocked. Always keep the icon and a worded title; never rely on color alone.
-- Logo on light backgrounds only. No reversed/white logo exists.
-- Buttons that trigger a slow action (network request, server action, async submit) MUST give feedback: disable the button and show a spinner while it runs, so it can't be double-clicked and the user knows something is happening. Use the button's `loading` prop: `<Button loading={busy}>Save</Button>` (it disables + shows the spinner). For a form posting to a server action, drive it with useFormStatus: `const { pending } = useFormStatus()` then `<Button loading={pending}>`. Never leave a button clickable and silent during a slow action.
-- Motion: animations belong on landing/marketing pages only, implemented with Framer Motion. Dashboards and internal tools stay still (instant color/state changes only) for usability.
-- Responsive: LANDING / marketing pages are FULLY responsive, mobile-first (look right down to 360px). DASHBOARDS and internal tools are desktop-optimized but must stay PHONE-USABLE, never desktop-only or broken. The shared chrome already handles most of it: @enjab-ui/sidebar collapses to a hamburger drawer below lg, @enjab-ui/dashboard-shell stacks, and @enjab-ui/data-table scrolls horizontally inside its card (no data lost). For your own content: stack grids to one column on small screens (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4), shrink page padding (p-4 sm:p-6), never set fixed pixel widths that overflow a phone, keep tap targets comfortable. Do NOT build a separate mobile design, just don't break.
-- Spacing: 4px scale. Never let two sections, cards, or nav items touch. Default gap between blocks is 20px.
-- App shell: sidebar brand header and topbar share the same height and border so the top reads as one connected bar.
-- Every dashboard shows the "an Enjab product" byline: sidebar dashboards end the sidebar with sidebar-footer (account block + byline) pinned to the bottom; no-sidebar dashboards place enjab-byline anywhere sensible. Fixed sizes, never restyle.
-- ALWAYS ship the favicon via @enjab-ui/favicon. It adds app/icon.tsx + app/apple-icon.tsx: code-generated PNG icons (the Enjab gradient square + a glyph), which render correctly in Safari, so no separate .ico is needed. To brand a tool, edit the GLYPH constant at the top of app/icon.tsx (and app/apple-icon.tsx): use a different letter, or paste an icon's raw inline SVG (Lucide React components do NOT render inside the icon generator, paste the <svg> markup), keeping the same gradient and shape. Default is the letter "E". Never ship a project without it. (If you previously had a static app/icon.svg from an older version, delete it so it doesn't clash.)
-- The favicon and any in-app icon / brand mark MUST be the SAME image. The favicon glyph (the GLYPH in app/icon.tsx) is canonical: wherever the app shows its own square icon/logo (a sign-in panel, a header mark, etc.), render the identical mark, same gradient square, same glyph. Mirror the glyph SVG into one small component so the tab icon and the on-screen mark can never drift. Never let them differ.
-- A tool shows ITS OWN brand at the top of the sidebar and on landing navbars, the tool's mark (@enjab-ui/app-mark) = its favicon square + the tool's name, NOT the Enjab logo. Pass `appName` + `appIcon` to the sidebar. The Enjab parent logo (@enjab-ui/logo) appears in EXACTLY ONE place: the "an Enjab product" byline (sidebar-footer / enjab-byline). Never put the Enjab logo in the navbar/sidebar top.
-- Navigation must be INSTANT. Every data-fetching route ships a Next.js loading.tsx skeleton that mirrors the page and shows immediately while data loads. Never a blank or frozen screen. Skeletons = animate-pulse on bg-muted, sized to the real content (no layout shift).
-- Build the dashboard CHROME from the ready components: @enjab-ui/dashboard-shell + @enjab-ui/sidebar + @enjab-ui/page-header + @enjab-ui/data-table. NEVER hand-roll the sidebar, topbar, or table, reimplementing them is what causes drift. Only the cell content / page content is custom.
-- English, left to right.
-- Stack: Next.js (App Router) + Tailwind CSS + shadcn/ui. Charts: Recharts. Icons: Lucide.
-
-## Audience
-
-Enjab builds employee-facing tools (dashboards, internal consoles, automation), each in its own repo, often by different developers and agents. This registry keeps them visually identical.
+For setup, the component reference, the design rules, and how to update an existing project,
+read https://developers.enjab.ae/llms.txt.
