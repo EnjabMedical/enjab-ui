@@ -18,9 +18,9 @@ pnpm start    # serve the production build
 ```
 
 ## What's here
-- `src/app/globals.css` — the Enjab theme (tokens mapped to shadcn variables). Single source of truth in code.
-- `src/components/ui/` — themed shadcn primitives (button is pill + has a `navy` variant).
-- `src/components/enjab/` — Enjab pieces: `Logo`, `StatusPill`, `StatCard`, `Reveal` (motion), `ShowcaseNav`.
+- `src/app/globals.css` - the Enjab theme (tokens mapped to shadcn variables). Single source of truth in code.
+- `src/components/ui/` - themed shadcn primitives (button is pill + has a `navy` variant).
+- `src/components/enjab/` - Enjab pieces: `Logo`, `StatusPill`, `StatCard`, `Reveal` (motion), `ShowcaseNav`.
 - Showcase routes:
   - `/` overview + tokens
   - `/components` the full component gallery

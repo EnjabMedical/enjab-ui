@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { EnjabByline } from "@/components/enjab/enjab-byline";
 
-/** Derive a display name from an email, e.g. layla.ahmed@enjab.ae -> "Layla Ahmed". */
+/** Derive a display name from an email, e.g. layla.ahmed@example.com -> "Layla Ahmed". */
 function nameFromEmail(email: string): string {
   const local = email.split("@")[0] ?? email;
   return (

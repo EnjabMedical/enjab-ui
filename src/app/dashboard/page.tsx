@@ -45,7 +45,7 @@ const groups: SidebarNavGroup[] = [
   },
 ];
 
-const deptColors = ["#057C8B", "#1B3766", "#0099FF", "#42AF48", "#89AAD9"];
+const deptColors = ["var(--teal)", "var(--navy)", "var(--info)", "var(--success)", "var(--chart-5)"];
 
 const columns: Column<Appointment>[] = [
   {
@@ -89,7 +89,7 @@ export default function DashboardPage() {
           appIcon={<Activity strokeWidth={2.4} />}
           activeHref="/dashboard"
           groups={groups}
-          user={{ name: "Layla Ahmed", email: "layla@enjab.ae", initial: "L" }}
+          user={{ name: "Layla Ahmed", email: "layla@example.com", initial: "L" }}
         />
       }
     >
@@ -134,11 +134,11 @@ export default function DashboardPage() {
                   dataKey="day"
                   tickLine={false}
                   axisLine={false}
-                  tick={{ fontSize: 11, fill: "#787878" }}
+                  tick={{ fontSize: 11, fill: "var(--muted-foreground)" }}
                 />
                 <Bar dataKey="value" radius={[6, 6, 0, 0]} maxBarSize={42}>
                   {visits.map((d, i) => (
-                    <Cell key={d.day} fill={i >= 5 ? "#1B3766" : "#057C8B"} />
+                    <Cell key={d.day} fill={i >= 5 ? "var(--navy)" : "var(--teal)"} />
                   ))}
                 </Bar>
               </BarChart>

@@ -32,7 +32,7 @@ export function AppMark({
     <span className={cn("flex items-center gap-2.5", className)}>
       <span
         style={{ width: size, height: size }}
-        className="flex shrink-0 items-center justify-center rounded-[25%] bg-[linear-gradient(135deg,#057C8B_0%,#1B3766_100%)] text-white"
+        className="flex shrink-0 items-center justify-center rounded-[25%] bg-gradient-to-br from-teal to-navy text-white"
       >
         {glyph ? (
           <span className="flex size-full items-center justify-center [&_svg]:size-[55%]">

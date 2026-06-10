@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Light mode only: gate `dark:` to a `.dark` ancestor that never exists, so OS dark mode
+   can never activate any inherited `dark:` variant. The app always renders light. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
   Enjab UI theme. Light mode only by design. Tokens mirror design-system/foundations.md.
   Brand: teal #057C8B, navy #1B3766. Type: Satoshi (UI) + Fragment Mono (data).
@@ -57,6 +61,10 @@
   --color-warning: var(--warning);
   --color-danger: var(--danger);
   --color-info: var(--info);
+  --color-success-strong: var(--success-strong);
+  --color-warning-strong: var(--warning-strong);
+  --color-danger-strong: var(--danger-strong);
+  --color-info-strong: var(--info-strong);
   --color-canvas: var(--canvas);
   --color-ink: var(--ink);
   --color-line: var(--line);
@@ -132,6 +140,11 @@
   --warning: #e0a100;
   --danger: #d64545;
   --info: #0099ff;
+  /* Readable text shades of the status colors, for labels/text on tinted backgrounds. */
+  --success-strong: #2c7a33;
+  --warning-strong: #9a7400;
+  --danger-strong: #b23b3b;
+  --info-strong: #0a6fb5;
   --canvas: #f6f8f9;
   --ink: #0d0d0d;
   --line: #e9ecef;

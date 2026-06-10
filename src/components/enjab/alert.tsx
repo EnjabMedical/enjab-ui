@@ -5,10 +5,10 @@ import { cn } from "@/lib/utils";
 export type AlertTone = "success" | "info" | "warning" | "danger";
 
 const styles: Record<AlertTone, { box: string; icon: string; Icon: LucideIcon }> = {
-  success: { box: "border-success/25 bg-success/8 text-[#2c7a33]", icon: "text-success", Icon: CheckCircle2 },
-  info: { box: "border-info/25 bg-info/8 text-[#0a6fb5]", icon: "text-info", Icon: Info },
-  warning: { box: "border-warning/30 bg-warning/10 text-[#9a7400]", icon: "text-warning", Icon: AlertTriangle },
-  danger: { box: "border-danger/25 bg-danger/8 text-[#b23b3b]", icon: "text-danger", Icon: AlertCircle },
+  success: { box: "border-success/25 bg-success/8 text-success-strong", icon: "text-success", Icon: CheckCircle2 },
+  info: { box: "border-info/25 bg-info/8 text-info-strong", icon: "text-info", Icon: Info },
+  warning: { box: "border-warning/30 bg-warning/10 text-warning-strong", icon: "text-warning", Icon: AlertTriangle },
+  danger: { box: "border-danger/25 bg-danger/8 text-danger-strong", icon: "text-danger", Icon: AlertCircle },
 };
 
 /**

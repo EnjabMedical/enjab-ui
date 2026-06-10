@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 export type StatusTone = "success" | "warning" | "danger" | "info" | "neutral";
 
 const tone: Record<string, string> = {
-  success: "bg-success/12 text-[#2c7a33]",
-  warning: "bg-warning/15 text-[#9a7400]",
-  danger: "bg-danger/12 text-[#b23b3b]",
-  info: "bg-info/12 text-[#0a6fb5]",
+  success: "bg-success/12 text-success-strong",
+  warning: "bg-warning/15 text-warning-strong",
+  danger: "bg-danger/12 text-danger-strong",
+  info: "bg-info/12 text-info-strong",
   neutral: "bg-muted text-muted-foreground",
 };
 

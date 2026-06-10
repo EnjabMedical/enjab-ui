@@ -5,10 +5,10 @@ Raw, confirmed brand data extracted from the live site **enjab.ae** (Framer) and
 ## Logo
 
 Files in `brand-assets/`:
-- `enjab-logo-primary.png` (800px) — primary wordmark
+- `enjab-logo-primary.png` (800px) - primary wordmark
 - `enjab-logo-footer.webp`
-- `enjab-icon-1080.png` — square icon
-- `enjab-og-reference.png` — live homepage screenshot, reference only
+- `enjab-icon-1080.png` - square icon
+- `enjab-og-reference.png` - live homepage screenshot, reference only
 
 Description: "Enjab" wordmark in deep navy. The "j" is a water-drop / womb cradling a teal baby, with three swooshes (teal, green, light blue) rising off it. Fertility / maternity origin is built into the mark.
 
@@ -44,9 +44,9 @@ Description: "Enjab" wordmark in deep navy. The "j" is a water-drop / womb cradl
 
 ## Type (verified per element 2026-06-04)
 Re-analyzed enjab.ae: it uses a THREE-font system, not Satoshi-for-everything.
-- **Inter Display** (Inter, Display optical size) — HEADINGS / titles (h1, h2, h6). Style selector decoded as `InterDisplay-Medium`.
-- **Satoshi** (Fontshare) — BODY / paragraphs and general UI text. Weights 400/500/700/900.
-- **Fragment Mono** (Google Fonts) — mono accent for labels, eyebrows, and data. Not for body.
+- **Inter Display** (Inter, Display optical size) - HEADINGS / titles (h1, h2, h6). Style selector decoded as `InterDisplay-Medium`.
+- **Satoshi** (Fontshare) - BODY / paragraphs and general UI text. Weights 400/500/700/900.
+- **Fragment Mono** (Google Fonts) - mono accent for labels, eyebrows, and data. Not for body.
 - Plain "Inter" also appears as Framer's fallback; the intentional heading face is Inter Display.
 
 ## Aesthetic
